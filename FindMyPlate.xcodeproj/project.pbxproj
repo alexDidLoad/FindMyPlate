@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		110A014825C517DA000C66FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A014725C517DA000C66FC /* AppDelegate.swift */; };
+		110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A014925C517DA000C66FC /* SceneDelegate.swift */; };
+		110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 110A015025C517DA000C66FC /* FindMyPlate.xcdatamodeld */; };
+		110A015425C517DC000C66FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110A015325C517DC000C66FC /* Assets.xcassets */; };
+		110A015725C517DC000C66FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110A015525C517DC000C66FC /* LaunchScreen.storyboard */; };
+		110A016325C52126000C66FC /* FYPHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016225C52126000C66FC /* FYPHomeVC.swift */; };
+		110A016825C66E75000C66FC /* FYPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016725C66E75000C66FC /* FYPTabBar.swift */; };
+		110A016D25C66ED2000C66FC /* FYPFavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */; };
+		110A017125C66FC9000C66FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017025C66FC9000C66FC /* Constants.swift */; };
+		110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017525C689D0000C66FC /* UIView+Ext.swift */; };
+		110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017C25C69291000C66FC /* EnableLocationVC.swift */; };
+		110A018125C694F3000C66FC /* FYPEnableLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */; };
+		110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018425C69F86000C66FC /* FYPAlertVC.swift */; };
+		110A018C25C6A01D000C66FC /* FYPAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */; };
+		110A018F25C6A196000C66FC /* FYPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018E25C6A196000C66FC /* FYPTitleLabel.swift */; };
+		110A019225C6A333000C66FC /* FYPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A019125C6A333000C66FC /* FYPBodyLabel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		110A014425C517DA000C66FC /* FindMyPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		110A014725C517DA000C66FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		110A014925C517DA000C66FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		110A015125C517DA000C66FC /* FindMyPlate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FindMyPlate.xcdatamodel; sourceTree = "<group>"; };
+		110A015325C517DC000C66FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		110A015625C517DC000C66FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		110A015825C517DC000C66FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		110A016225C52126000C66FC /* FYPHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPHomeVC.swift; sourceTree = "<group>"; };
+		110A016725C66E75000C66FC /* FYPTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPTabBar.swift; sourceTree = "<group>"; };
+		110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPFavoritesVC.swift; sourceTree = "<group>"; };
+		110A017025C66FC9000C66FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		110A017525C689D0000C66FC /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		110A017C25C69291000C66FC /* EnableLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationVC.swift; sourceTree = "<group>"; };
+		110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPEnableLocationButton.swift; sourceTree = "<group>"; };
+		110A018425C69F86000C66FC /* FYPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPAlertVC.swift; sourceTree = "<group>"; };
+		110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPAlertContainerView.swift; sourceTree = "<group>"; };
+		110A018E25C6A196000C66FC /* FYPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPTitleLabel.swift; sourceTree = "<group>"; };
+		110A019125C6A333000C66FC /* FYPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPBodyLabel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		110A014125C517DA000C66FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		110A013B25C517DA000C66FC = {
+			isa = PBXGroup;
+			children = (
+				110A014625C517DA000C66FC /* FindMyPlate */,
+				110A014525C517DA000C66FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		110A014525C517DA000C66FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				110A014425C517DA000C66FC /* FindMyPlate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		110A014625C517DA000C66FC /* FindMyPlate */ = {
+			isa = PBXGroup;
+			children = (
+				110A014725C517DA000C66FC /* AppDelegate.swift */,
+				110A014925C517DA000C66FC /* SceneDelegate.swift */,
+				110A016A25C66E7A000C66FC /* View */,
+				110A016525C66D72000C66FC /* Controllers */,
+				110A016F25C66FAD000C66FC /* Utilities */,
+				110A015325C517DC000C66FC /* Assets.xcassets */,
+				110A015525C517DC000C66FC /* LaunchScreen.storyboard */,
+				110A015825C517DC000C66FC /* Info.plist */,
+				110A015025C517DA000C66FC /* FindMyPlate.xcdatamodeld */,
+			);
+			path = FindMyPlate;
+			sourceTree = "<group>";
+		};
+		110A016525C66D72000C66FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				110A018925C69FA3000C66FC /* LocationAuth */,
+				110A018725C69F93000C66FC /* Screens */,
+				110A018425C69F86000C66FC /* FYPAlertVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		110A016A25C66E7A000C66FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				110A016725C66E75000C66FC /* FYPTabBar.swift */,
+				110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */,
+				110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */,
+				110A019425C6A3DF000C66FC /* Custom Labels */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		110A016F25C66FAD000C66FC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				110A017025C66FC9000C66FC /* Constants.swift */,
+				110A017525C689D0000C66FC /* UIView+Ext.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		110A018725C69F93000C66FC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				110A016225C52126000C66FC /* FYPHomeVC.swift */,
+				110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		110A018925C69FA3000C66FC /* LocationAuth */ = {
+			isa = PBXGroup;
+			children = (
+				110A017C25C69291000C66FC /* EnableLocationVC.swift */,
+			);
+			path = LocationAuth;
+			sourceTree = "<group>";
+		};
+		110A019425C6A3DF000C66FC /* Custom Labels */ = {
+			isa = PBXGroup;
+			children = (
+				110A018E25C6A196000C66FC /* FYPTitleLabel.swift */,
+				110A019125C6A333000C66FC /* FYPBodyLabel.swift */,
+			);
+			path = "Custom Labels";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		110A014325C517DA000C66FC /* FindMyPlate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 110A015B25C517DC000C66FC /* Build configuration list for PBXNativeTarget "FindMyPlate" */;
+			buildPhases = (
+				110A014025C517DA000C66FC /* Sources */,
+				110A014125C517DA000C66FC /* Frameworks */,
+				110A014225C517DA000C66FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindMyPlate;
+			productName = FindMyPlate;
+			productReference = 110A014425C517DA000C66FC /* FindMyPlate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		110A013C25C517DA000C66FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					110A014325C517DA000C66FC = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 110A013F25C517DA000C66FC /* Build configuration list for PBXProject "FindMyPlate" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 110A013B25C517DA000C66FC;
+			productRefGroup = 110A014525C517DA000C66FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				110A014325C517DA000C66FC /* FindMyPlate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		110A014225C517DA000C66FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				110A015725C517DC000C66FC /* LaunchScreen.storyboard in Resources */,
+				110A015425C517DC000C66FC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		110A014025C517DA000C66FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */,
+				110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */,
+				110A014825C517DA000C66FC /* AppDelegate.swift in Sources */,
+				110A018F25C6A196000C66FC /* FYPTitleLabel.swift in Sources */,
+				110A018125C694F3000C66FC /* FYPEnableLocationButton.swift in Sources */,
+				110A016D25C66ED2000C66FC /* FYPFavoritesVC.swift in Sources */,
+				110A019225C6A333000C66FC /* FYPBodyLabel.swift in Sources */,
+				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
+				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
+				110A018C25C6A01D000C66FC /* FYPAlertContainerView.swift in Sources */,
+				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
+				110A016325C52126000C66FC /* FYPHomeVC.swift in Sources */,
+				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,
+				110A016825C66E75000C66FC /* FYPTabBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		110A015525C517DC000C66FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				110A015625C517DC000C66FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		110A015925C517DC000C66FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		110A015A25C517DC000C66FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		110A015C25C517DC000C66FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584W76NDBF;
+				INFOPLIST_FILE = FindMyPlate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.AlexanderHa.FindMyPlate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		110A015D25C517DC000C66FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584W76NDBF;
+				INFOPLIST_FILE = FindMyPlate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.AlexanderHa.FindMyPlate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		110A013F25C517DA000C66FC /* Build configuration list for PBXProject "FindMyPlate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				110A015925C517DC000C66FC /* Debug */,
+				110A015A25C517DC000C66FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		110A015B25C517DC000C66FC /* Build configuration list for PBXNativeTarget "FindMyPlate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				110A015C25C517DC000C66FC /* Debug */,
+				110A015D25C517DC000C66FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		110A015025C517DA000C66FC /* FindMyPlate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				110A015125C517DA000C66FC /* FindMyPlate.xcdatamodel */,
+			);
+			currentVersion = 110A015125C517DA000C66FC /* FindMyPlate.xcdatamodel */;
+			path = FindMyPlate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 110A013C25C517DA000C66FC /* Project object */;
+}
