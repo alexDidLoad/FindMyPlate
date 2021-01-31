@@ -68,6 +68,10 @@ class EnableLocationVC: UIViewController {
     @objc private func enableButtonPressed() {
         
         print("Button pressed")
+        let alertVC = FYPAlertVC(title: "Please Enable Location", message: "Location needed in order to find restaurants near you")
+        alertVC.modalTransitionStyle = .crossDissolve
+        alertVC.modalPresentationStyle = .overFullScreen
+        present(alertVC, animated: true)
     }
     
 }
