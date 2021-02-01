@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         configureNavBar()
         window                       = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene          = windowScene
-        window?.rootViewController   = FYPTabBar()
+        window?.rootViewController   = FMPTabBar()
         window?.makeKeyAndVisible()
     }
     
@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configureNavBar() {
         UINavigationBar.appearance().barStyle               = .black
-        UINavigationBar.appearance().tintColor              = .systemRed
+        UINavigationBar.appearance().tintColor              = .white
         UINavigationBar.appearance().barTintColor           = .systemRed
         UINavigationBar.appearance().titleTextAttributes    = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .bold),
                                                                NSAttributedString.Key.foregroundColor : UIColor.white]

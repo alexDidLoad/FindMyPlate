@@ -1,5 +1,5 @@
 //
-//  FYPTabBar.swift
+//  FMPTabBar.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 1/30/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FYPTabBar: UITabBarController {
+class FMPTabBar: UITabBarController {
     
     //MARK: - Lifecycle
     
@@ -20,7 +20,7 @@ class FYPTabBar: UITabBarController {
     //MARK: - Helpers
     
     private func createHomeNC() -> UINavigationController {
-        let homeVC              = FYPHomeVC()
+        let homeVC              = FMPHomeVC()
         homeVC.title            = "Find My Plate"
         homeVC.tabBarItem       = UITabBarItem(title: "Home", image: SFSymbols.home, tag: 0)
         
@@ -29,7 +29,7 @@ class FYPTabBar: UITabBarController {
     
     
     private func createFavoritesNC() -> UINavigationController {
-        let favoritesVC             = FYPFavoritesVC()
+        let favoritesVC             = FMPFavoritesVC()
         favoritesVC.title           = "Favorites"
         favoritesVC.tabBarItem      = UITabBarItem(title: "Favorites", image: SFSymbols.heart, tag: 1)
         

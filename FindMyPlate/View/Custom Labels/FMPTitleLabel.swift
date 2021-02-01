@@ -1,5 +1,5 @@
 //
-//  FYPTitleLabel.swift
+//  FMPTitleLabel.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 1/31/21.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class FYPTitleLabel: UILabel {
+class FMPTitleLabel: UILabel {
     
-    //MARK: - Lifecycle
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)

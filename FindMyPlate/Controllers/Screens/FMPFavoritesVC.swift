@@ -1,5 +1,5 @@
 //
-//  FYPFavoritesVC.swift
+//  FMPFavoritesVC.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 1/30/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FYPFavoritesVC: UIViewController {
+class FMPFavoritesVC: UIViewController {
     
     //MARK: - UIComponents
     

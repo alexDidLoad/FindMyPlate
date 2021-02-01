@@ -13,15 +13,11 @@ class EnableLocationVC: UIViewController {
     //MARK: - UIComponents
     
     private let locationImageView: UIImageView = UIImageView(image: SFSymbols.locationIcon)
-    private let enableLocationButton: FYPEnableLocationButton = {
-        let button = FYPEnableLocationButton(frame: .zero)
+    private let enableLocationButton: FMPEnableLocationButton = {
+        let button = FMPEnableLocationButton(frame: .zero)
         button.addTarget(self, action: #selector(enableButtonPressed), for: .touchUpInside)
         return button
     }()
-    
-    //MARK: - Properties
-    
-    var locationManager: CLLocationManager!
     
     //MARK: - Lifecycle
     
@@ -35,13 +31,7 @@ class EnableLocationVC: UIViewController {
     
     private func handleDeniedAuth(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .denied {
-            let alert = UIAlertController(title: "Need Authorization", message: "This app is unusable if you don't authorize this app to use your location!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
-                let url = URL(string: UIApplication.openSettingsURLString)!
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            presentFYPAlertVC(with: "Please Enable Locations", message: "Settings > Privacy > Location Services > Enable", manager: manager)
         }
     }
     
@@ -66,12 +56,24 @@ class EnableLocationVC: UIViewController {
     //MARK: - Selectors
     
     @objc private func enableButtonPressed() {
+        LocationManager.shared.requestWhenInUseAuthorization()
+        LocationManager.shared.delegate = self
+        handleDeniedAuth(LocationManager.shared)
+    }
+    
+}
+
+//MARK: - CLLocationManagerDelegate
+
+extension EnableLocationVC: CLLocationManagerDelegate {
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard manager.location != nil else {
+            presentFYPAlertVC(with: "Unable to find location", message: "Please try again")
+            return
+        }
         
-        print("Button pressed")
-        let alertVC = FYPAlertVC(title: "Please Enable Location", message: "Location needed in order to find restaurants near you")
-        alertVC.modalTransitionStyle = .crossDissolve
-        alertVC.modalPresentationStyle = .overFullScreen
-        present(alertVC, animated: true)
+        dismiss(animated: true)
     }
     
 }

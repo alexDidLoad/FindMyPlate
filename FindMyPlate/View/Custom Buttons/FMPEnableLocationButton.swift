@@ -1,5 +1,5 @@
 //
-//  FYPEnableLocationButton.swift
+//  FMPEnableLocationButton.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 1/30/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FYPEnableLocationButton: UIButton {
+class FMPEnableLocationButton: UIButton {
  
     //MARK: - Init
     

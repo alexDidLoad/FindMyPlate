@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FYPAlertVC: UIViewController {
     
     //MARK: - UIComponents
     
-    private let containerView = FYPAlertContainerView()
-    private let titleLabel = FYPTitleLabel(textAlignment: .center, fontSize: 20)
-    private let messageLabel = FYPBodyLabel(textAlignment: .center)
+    private let containerView = FMPAlertContainerView()
+    private let titleLabel = FMPTitleLabel(textAlignment: .center, fontSize: 20)
+    private let messageLabel = FMPBodyLabel(textAlignment: .center)
     private let actionButton: UIButton = {
-        let button              = UIButton(type: .system)
-        button.backgroundColor  = .systemRed
-        button.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        let button                  = UIButton(type: .system)
+        button.backgroundColor      = .systemRed
+        button.layer.cornerRadius   = 12
+        button.titleLabel?.font     = UIFont.systemFont(ofSize: 16, weight: .regular)
+        
+        button.setTitle("Ok", for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     
@@ -28,7 +33,7 @@ class FYPAlertVC: UIViewController {
     private var alertTitle: String?
     private var message: String?
     
-    //MARK: - Lifecycle
+    //MARK: - Init
     
     init(title: String, message: String) {
         super.init(nibName: nil, bundle: nil)
@@ -38,10 +43,23 @@ class FYPAlertVC: UIViewController {
     }
     
     
+    convenience init(title: String, message: String, manager: CLLocationManager?) {
+        self.init(title: title, message: message)
+        
+        if manager?.authorizationStatus == .denied {
+            actionButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+        } else {
+            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        }
+    }
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +67,13 @@ class FYPAlertVC: UIViewController {
         configureUI()
     }
     
+    
     //MARK: - Helpers
     
     private func configureContainerView() {
         view.addSubview(containerView)
         containerView.centerInView(view: view)
-        containerView.setDimensions(height: 280, width: 220)
+        containerView.setDimensions(height: 200, width: 290)
     }
     
     
@@ -86,8 +105,6 @@ class FYPAlertVC: UIViewController {
     }
     
     private func configureActionButton() {
-        actionButton.setTitle("Ok", for: .normal)
-        
         containerView.addSubview(actionButton)
         actionButton.anchor(leading: containerView.leadingAnchor,
                             bottom: containerView.bottomAnchor,
@@ -109,6 +126,12 @@ class FYPAlertVC: UIViewController {
     }
     
     //MARK: - Selectors
+    
+    @objc private func openSettings() {
+        let url = URL(string: UIApplication.openSettingsURLString)!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        dismiss(animated: true)
+    }
     
     @objc private func dismissAlert() {
         dismiss(animated: true)

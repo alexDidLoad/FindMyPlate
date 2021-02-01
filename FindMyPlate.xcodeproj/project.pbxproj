@@ -12,17 +12,25 @@
 		110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 110A015025C517DA000C66FC /* FindMyPlate.xcdatamodeld */; };
 		110A015425C517DC000C66FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110A015325C517DC000C66FC /* Assets.xcassets */; };
 		110A015725C517DC000C66FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 110A015525C517DC000C66FC /* LaunchScreen.storyboard */; };
-		110A016325C52126000C66FC /* FYPHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016225C52126000C66FC /* FYPHomeVC.swift */; };
-		110A016825C66E75000C66FC /* FYPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016725C66E75000C66FC /* FYPTabBar.swift */; };
-		110A016D25C66ED2000C66FC /* FYPFavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */; };
+		110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016225C52126000C66FC /* FMPHomeVC.swift */; };
+		110A016825C66E75000C66FC /* FMPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016725C66E75000C66FC /* FMPTabBar.swift */; };
+		110A016D25C66ED2000C66FC /* FMPFavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A016C25C66ED2000C66FC /* FMPFavoritesVC.swift */; };
 		110A017125C66FC9000C66FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017025C66FC9000C66FC /* Constants.swift */; };
 		110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017525C689D0000C66FC /* UIView+Ext.swift */; };
 		110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A017C25C69291000C66FC /* EnableLocationVC.swift */; };
-		110A018125C694F3000C66FC /* FYPEnableLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */; };
+		110A018125C694F3000C66FC /* FMPEnableLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018025C694F3000C66FC /* FMPEnableLocationButton.swift */; };
 		110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018425C69F86000C66FC /* FYPAlertVC.swift */; };
-		110A018C25C6A01D000C66FC /* FYPAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */; };
-		110A018F25C6A196000C66FC /* FYPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018E25C6A196000C66FC /* FYPTitleLabel.swift */; };
-		110A019225C6A333000C66FC /* FYPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A019125C6A333000C66FC /* FYPBodyLabel.swift */; };
+		110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018B25C6A01D000C66FC /* FMPAlertContainerView.swift */; };
+		110A018F25C6A196000C66FC /* FMPTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A018E25C6A196000C66FC /* FMPTitleLabel.swift */; };
+		110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A019125C6A333000C66FC /* FMPBodyLabel.swift */; };
+		110A019725C75467000C66FC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A019625C75467000C66FC /* UIViewController+Ext.swift */; };
+		110A019A25C76569000C66FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A019925C76569000C66FC /* LocationManager.swift */; };
+		110A01A225C76D47000C66FC /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01A125C76D47000C66FC /* UIHelper.swift */; };
+		110A01AB25C79599000C66FC /* FMPCuisineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01AA25C79599000C66FC /* FMPCuisineCell.swift */; };
+		110A01B025C79663000C66FC /* FMPItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01AF25C79663000C66FC /* FMPItemImageView.swift */; };
+		110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */; };
+		110A01C525C7B16A000C66FC /* FMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01C425C7B16A000C66FC /* FMPViewController.swift */; };
+		110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01C725C7BB52000C66FC /* FMPDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,17 +41,25 @@
 		110A015325C517DC000C66FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		110A015625C517DC000C66FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		110A015825C517DC000C66FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		110A016225C52126000C66FC /* FYPHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPHomeVC.swift; sourceTree = "<group>"; };
-		110A016725C66E75000C66FC /* FYPTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPTabBar.swift; sourceTree = "<group>"; };
-		110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPFavoritesVC.swift; sourceTree = "<group>"; };
+		110A016225C52126000C66FC /* FMPHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPHomeVC.swift; sourceTree = "<group>"; };
+		110A016725C66E75000C66FC /* FMPTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPTabBar.swift; sourceTree = "<group>"; };
+		110A016C25C66ED2000C66FC /* FMPFavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPFavoritesVC.swift; sourceTree = "<group>"; };
 		110A017025C66FC9000C66FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		110A017525C689D0000C66FC /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		110A017C25C69291000C66FC /* EnableLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationVC.swift; sourceTree = "<group>"; };
-		110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPEnableLocationButton.swift; sourceTree = "<group>"; };
+		110A018025C694F3000C66FC /* FMPEnableLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPEnableLocationButton.swift; sourceTree = "<group>"; };
 		110A018425C69F86000C66FC /* FYPAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPAlertVC.swift; sourceTree = "<group>"; };
-		110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPAlertContainerView.swift; sourceTree = "<group>"; };
-		110A018E25C6A196000C66FC /* FYPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPTitleLabel.swift; sourceTree = "<group>"; };
-		110A019125C6A333000C66FC /* FYPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYPBodyLabel.swift; sourceTree = "<group>"; };
+		110A018B25C6A01D000C66FC /* FMPAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPAlertContainerView.swift; sourceTree = "<group>"; };
+		110A018E25C6A196000C66FC /* FMPTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPTitleLabel.swift; sourceTree = "<group>"; };
+		110A019125C6A333000C66FC /* FMPBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPBodyLabel.swift; sourceTree = "<group>"; };
+		110A019625C75467000C66FC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		110A019925C76569000C66FC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		110A01A125C76D47000C66FC /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		110A01AA25C79599000C66FC /* FMPCuisineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCuisineCell.swift; sourceTree = "<group>"; };
+		110A01AF25C79663000C66FC /* FMPItemImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPItemImageView.swift; sourceTree = "<group>"; };
+		110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCategoryVC.swift; sourceTree = "<group>"; };
+		110A01C425C7B16A000C66FC /* FMPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPViewController.swift; sourceTree = "<group>"; };
+		110A01C725C7BB52000C66FC /* FMPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,8 @@
 			children = (
 				110A014725C517DA000C66FC /* AppDelegate.swift */,
 				110A014925C517DA000C66FC /* SceneDelegate.swift */,
+				110A019D25C7656F000C66FC /* Managers */,
+				110A01CA25C7BB5B000C66FC /* Model */,
 				110A016A25C66E7A000C66FC /* View */,
 				110A016525C66D72000C66FC /* Controllers */,
 				110A016F25C66FAD000C66FC /* Utilities */,
@@ -94,7 +112,8 @@
 			children = (
 				110A018925C69FA3000C66FC /* LocationAuth */,
 				110A018725C69F93000C66FC /* Screens */,
-				110A018425C69F86000C66FC /* FYPAlertVC.swift */,
+				110A019F25C76759000C66FC /* AlertVC */,
+				110A01C125C7AD9E000C66FC /* ParentVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -102,9 +121,10 @@
 		110A016A25C66E7A000C66FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				110A016725C66E75000C66FC /* FYPTabBar.swift */,
-				110A018025C694F3000C66FC /* FYPEnableLocationButton.swift */,
-				110A018B25C6A01D000C66FC /* FYPAlertContainerView.swift */,
+				110A01AD25C7963E000C66FC /* Custom Cells */,
+				110A01A625C79570000C66FC /* Custom TabBar */,
+				110A01A425C7956A000C66FC /* Custom Buttons */,
+				110A01A825C7957C000C66FC /* Custom Views */,
 				110A019425C6A3DF000C66FC /* Custom Labels */,
 			);
 			path = View;
@@ -115,6 +135,8 @@
 			children = (
 				110A017025C66FC9000C66FC /* Constants.swift */,
 				110A017525C689D0000C66FC /* UIView+Ext.swift */,
+				110A019625C75467000C66FC /* UIViewController+Ext.swift */,
+				110A01A125C76D47000C66FC /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -122,8 +144,9 @@
 		110A018725C69F93000C66FC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				110A016225C52126000C66FC /* FYPHomeVC.swift */,
-				110A016C25C66ED2000C66FC /* FYPFavoritesVC.swift */,
+				110A016225C52126000C66FC /* FMPHomeVC.swift */,
+				110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */,
+				110A016C25C66ED2000C66FC /* FMPFavoritesVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -139,10 +162,75 @@
 		110A019425C6A3DF000C66FC /* Custom Labels */ = {
 			isa = PBXGroup;
 			children = (
-				110A018E25C6A196000C66FC /* FYPTitleLabel.swift */,
-				110A019125C6A333000C66FC /* FYPBodyLabel.swift */,
+				110A018E25C6A196000C66FC /* FMPTitleLabel.swift */,
+				110A019125C6A333000C66FC /* FMPBodyLabel.swift */,
 			);
 			path = "Custom Labels";
+			sourceTree = "<group>";
+		};
+		110A019D25C7656F000C66FC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				110A019925C76569000C66FC /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		110A019F25C76759000C66FC /* AlertVC */ = {
+			isa = PBXGroup;
+			children = (
+				110A018425C69F86000C66FC /* FYPAlertVC.swift */,
+			);
+			path = AlertVC;
+			sourceTree = "<group>";
+		};
+		110A01A425C7956A000C66FC /* Custom Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				110A018025C694F3000C66FC /* FMPEnableLocationButton.swift */,
+			);
+			path = "Custom Buttons";
+			sourceTree = "<group>";
+		};
+		110A01A625C79570000C66FC /* Custom TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				110A016725C66E75000C66FC /* FMPTabBar.swift */,
+			);
+			path = "Custom TabBar";
+			sourceTree = "<group>";
+		};
+		110A01A825C7957C000C66FC /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				110A018B25C6A01D000C66FC /* FMPAlertContainerView.swift */,
+				110A01AF25C79663000C66FC /* FMPItemImageView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		110A01AD25C7963E000C66FC /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				110A01AA25C79599000C66FC /* FMPCuisineCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		110A01C125C7AD9E000C66FC /* ParentVC */ = {
+			isa = PBXGroup;
+			children = (
+				110A01C425C7B16A000C66FC /* FMPViewController.swift */,
+			);
+			path = ParentVC;
+			sourceTree = "<group>";
+		};
+		110A01CA25C7BB5B000C66FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				110A01C725C7BB52000C66FC /* FMPDataSource.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,20 +302,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110A01AB25C79599000C66FC /* FMPCuisineCell.swift in Sources */,
 				110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */,
 				110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */,
+				110A01C525C7B16A000C66FC /* FMPViewController.swift in Sources */,
+				110A019725C75467000C66FC /* UIViewController+Ext.swift in Sources */,
 				110A014825C517DA000C66FC /* AppDelegate.swift in Sources */,
-				110A018F25C6A196000C66FC /* FYPTitleLabel.swift in Sources */,
-				110A018125C694F3000C66FC /* FYPEnableLocationButton.swift in Sources */,
-				110A016D25C66ED2000C66FC /* FYPFavoritesVC.swift in Sources */,
-				110A019225C6A333000C66FC /* FYPBodyLabel.swift in Sources */,
+				110A019A25C76569000C66FC /* LocationManager.swift in Sources */,
+				110A018F25C6A196000C66FC /* FMPTitleLabel.swift in Sources */,
+				110A018125C694F3000C66FC /* FMPEnableLocationButton.swift in Sources */,
+				110A016D25C66ED2000C66FC /* FMPFavoritesVC.swift in Sources */,
+				110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */,
 				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
 				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
-				110A018C25C6A01D000C66FC /* FYPAlertContainerView.swift in Sources */,
+				110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */,
+				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
 				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
-				110A016325C52126000C66FC /* FYPHomeVC.swift in Sources */,
+				110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */,
+				110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */,
+				110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */,
 				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,
-				110A016825C66E75000C66FC /* FYPTabBar.swift in Sources */,
+				110A01B025C79663000C66FC /* FMPItemImageView.swift in Sources */,
+				110A016825C66E75000C66FC /* FMPTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
