@@ -36,7 +36,7 @@ class FMPCuisineCell: UICollectionViewCell {
     
     func set(withImage image: UIImage, text: String) {
         cuisineImageView.image = image
-        cuisineLabel.text = text
+        cuisineLabel.text      = text
     }
     
     

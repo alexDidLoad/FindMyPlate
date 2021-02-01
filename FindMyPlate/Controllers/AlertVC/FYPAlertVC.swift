@@ -20,7 +20,6 @@ class FYPAlertVC: UIViewController {
         button.backgroundColor      = .systemRed
         button.layer.cornerRadius   = 12
         button.titleLabel?.font     = UIFont.systemFont(ofSize: 16, weight: .regular)
-        
         button.setTitle("Ok", for: .normal)
         button.setTitleColor(.white, for: .normal)
         return button

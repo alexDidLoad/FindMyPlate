@@ -11,7 +11,18 @@ class FMPViewController: UIViewController {
     
     //MARK: - UIComponents
     
-    let containerView = UIView()
+    let containerView: UIView = {
+        let cv                      = UIView()
+        cv.layer.shadowColor        = UIColor.black.cgColor
+        cv.layer.shadowOffset       = .zero
+        cv.layer.shadowOpacity      = 0.25
+        cv.layer.shadowRadius       = 10
+        cv.layer.shouldRasterize    = true
+        cv.layer.rasterizationScale = UIScreen.main.scale
+        cv.layer.zPosition          = 1
+        return cv
+    }()
+    
     let titleLabel    = FMPTitleLabel(textAlignment: .left, fontSize: 24)
     let bodyLabel     = FMPBodyLabel(textAlignment: .left)
     
