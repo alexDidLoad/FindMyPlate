@@ -1,5 +1,5 @@
 //
-//  MapResultsVC.swift
+//  FMPMapResultsVC.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 2/1/21.

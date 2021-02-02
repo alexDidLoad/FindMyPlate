@@ -35,7 +35,8 @@
 		110A01D225C8F2BB000C66FC /* FMPCenterOnUserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */; };
 		110A01D525C8F572000C66FC /* FMPExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01D425C8F572000C66FC /* FMPExitButton.swift */; };
 		110A01E025C8F8AE000C66FC /* FMPIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */; };
-		110A01E325C8FAF3000C66FC /* MapResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01E225C8FAF3000C66FC /* MapResultsVC.swift */; };
+		110A01E925C915AB000C66FC /* FMPMapResultsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */; };
+		110A01EC25C915C3000C66FC /* FMPMapResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +70,8 @@
 		110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCenterOnUserButton.swift; sourceTree = "<group>"; };
 		110A01D425C8F572000C66FC /* FMPExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPExitButton.swift; sourceTree = "<group>"; };
 		110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPIndicatorView.swift; sourceTree = "<group>"; };
-		110A01E225C8FAF3000C66FC /* MapResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultsVC.swift; sourceTree = "<group>"; };
+		110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultsContainerView.swift; sourceTree = "<group>"; };
+		110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				110A018B25C6A01D000C66FC /* FMPAlertContainerView.swift */,
 				110A01AF25C79663000C66FC /* FMPItemImageView.swift */,
 				110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */,
+				110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -251,7 +254,7 @@
 		110A01E525C8FAF7000C66FC /* ChildVC */ = {
 			isa = PBXGroup;
 			children = (
-				110A01E225C8FAF3000C66FC /* MapResultsVC.swift */,
+				110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */,
 			);
 			path = ChildVC;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */,
 				110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */,
 				110A01C525C7B16A000C66FC /* FMPViewController.swift in Sources */,
+				110A01E925C915AB000C66FC /* FMPMapResultsContainerView.swift in Sources */,
 				110A019725C75467000C66FC /* UIViewController+Ext.swift in Sources */,
 				110A014825C517DA000C66FC /* AppDelegate.swift in Sources */,
 				110A019A25C76569000C66FC /* LocationManager.swift in Sources */,
@@ -345,10 +349,10 @@
 				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
 				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
 				110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */,
-				110A01E325C8FAF3000C66FC /* MapResultsVC.swift in Sources */,
 				110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */,
 				110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */,
 				110A01D525C8F572000C66FC /* FMPExitButton.swift in Sources */,
+				110A01EC25C915C3000C66FC /* FMPMapResultsVC.swift in Sources */,
 				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,
 				110A01B025C79663000C66FC /* FMPItemImageView.swift in Sources */,
 				110A016825C66E75000C66FC /* FMPTabBar.swift in Sources */,

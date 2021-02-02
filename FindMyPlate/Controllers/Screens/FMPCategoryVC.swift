@@ -91,6 +91,10 @@ extension FMPCategoryVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let destinationVC = FMPMapVC()
+        destinationVC.modalPresentationStyle = .fullScreen
+        present(destinationVC, animated: true)
+        
     }
     
 }

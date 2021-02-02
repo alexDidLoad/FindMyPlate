@@ -35,9 +35,7 @@ class FMPExitButton: UIButton {
     private func configureButton() {
         imageView?.setDimensions(height: 40, width: 40)
         setImage(SFSymbols.xmark, for: .normal)
-       
-        imageView?.frame        = self.bounds
-        imageView?.contentMode  = .scaleAspectFit
+    
         layer.cornerRadius      = 20
         layer.masksToBounds     = true
         tintColor               = UIColor.lightGray.withAlphaComponent(0.5)
