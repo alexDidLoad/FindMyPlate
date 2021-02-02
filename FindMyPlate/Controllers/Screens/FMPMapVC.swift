@@ -23,8 +23,6 @@ class FMPMapVC: UIViewController {
     private var mapView: MKMapView!
     private var mapAnnotation: MKPointAnnotation!
     
-    private var containerViewOrigin: CGPoint!
-    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -41,6 +39,17 @@ class FMPMapVC: UIViewController {
     }
     
     //MARK: - Helpers
+    
+    private func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.anchor(top: containerView.topAnchor,
+                            leading: containerView.leadingAnchor,
+                            bottom: containerView.bottomAnchor,
+                            trailing: containerView.trailingAnchor,
+                            paddingTop: 42)
+        childVC.didMove(toParent: self)
+    }
     
     private func addPanGesture(to view: UIView) {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(FMPMapVC.handlePan(sender:)))
@@ -64,7 +73,7 @@ class FMPMapVC: UIViewController {
                                    paddingBottom: -(view.frame.height - 88),
                                    height: view.frame.height)
         
-//        containerViewOrigin = resultContainerView.frame.origin
+        add(childVC: FMPMapResultsVC(), to: self.resultContainerView)
     }
     
     
@@ -72,7 +81,7 @@ class FMPMapVC: UIViewController {
         mapView                     = MKMapView()
         mapView.delegate            = self
         mapView?.showsUserLocation  = true
-        mapView?.userTrackingMode   = .followWithHeading
+        mapView?.userTrackingMode   = .follow
         
         view.addSubview(mapView)
         mapView.frame               = view.bounds
@@ -110,6 +119,7 @@ class FMPMapVC: UIViewController {
                                            y: containerView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: view)
            
+            
             if containerView.center.y < 570.0 {
                 containerView.center.y = 570.0
             } else if containerView.center.y > 1178.0 {

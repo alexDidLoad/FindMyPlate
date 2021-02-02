@@ -19,6 +19,7 @@ class FMPMapResultsContainerView: UIView {
         super.init(frame: frame)
         
         configureView()
+        
     }
     
     
