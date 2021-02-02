@@ -14,7 +14,7 @@ class FMPItemImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configureUI()
+        configureView()
     }
     
     
@@ -26,7 +26,7 @@ class FMPItemImageView: UIImageView {
     
     //MARK: - Helpers
     
-    private func configureUI() {
+    private func configureView() {
         let dimensions: CGFloat = 160
         setDimensions(height: dimensions, width: dimensions)
         

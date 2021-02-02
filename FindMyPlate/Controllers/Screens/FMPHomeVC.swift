@@ -32,6 +32,7 @@ class FMPHomeVC: FMPViewController {
         collectionView.register(FMPCuisineCell.self, forCellWithReuseIdentifier: FMPCuisineCell.reuseID)
     }
     
+    
     private func configureLabels() {
         titleLabel.text = Title.chooseCuisine
         bodyLabel.text  = Body.whatAreYouFeelingToday

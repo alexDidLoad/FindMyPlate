@@ -23,7 +23,7 @@ class FMPCuisineCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configureUI()
+        configureCell()
     }
     
     
@@ -40,7 +40,7 @@ class FMPCuisineCell: UICollectionViewCell {
     }
     
     
-    private func configureUI() {
+    private func configureCell() {
         
         addSubview(cuisineImageView)
         cuisineImageView.centerX(inView: contentView)

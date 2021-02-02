@@ -11,6 +11,8 @@ enum SFSymbols {
     static let home         = UIImage(systemName: "house.fill")
     static let heart        = UIImage(systemName: "heart.fill")
     static let questionmark = UIImage(systemName: "questionmark")
+    static let viewFinder   = UIImage(systemName: "location.viewfinder")
+    static let xmark        = UIImage(systemName: "xmark.circle.fill")
     static let locationIcon = UIImage(named: "locationIcon")
 }
 

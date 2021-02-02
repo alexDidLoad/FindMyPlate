@@ -45,10 +45,8 @@ class FYPAlertVC: UIViewController {
     convenience init(title: String, message: String, manager: CLLocationManager?) {
         self.init(title: title, message: message)
         
-        if manager?.authorizationStatus == .denied {
-            actionButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
-        } else {
-            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        if let manager = manager {
+            checkAuthStatus(manager: manager)
         }
     }
     
@@ -68,6 +66,15 @@ class FYPAlertVC: UIViewController {
     
     
     //MARK: - Helpers
+    
+    private func checkAuthStatus(manager: CLLocationManager) {
+        if manager.authorizationStatus == .denied {
+            actionButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+        } else {
+            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        }
+    }
+    
     
     private func configureContainerView() {
         view.addSubview(containerView)

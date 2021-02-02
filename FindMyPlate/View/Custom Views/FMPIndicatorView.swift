@@ -1,13 +1,13 @@
 //
-//  FMPAlertContainerView.swift
+//  FMPIndicatorView.swift
 //  FindMyPlate
 //
-//  Created by Alexander Ha on 1/31/21.
+//  Created by Alexander Ha on 2/1/21.
 //
 
 import UIKit
 
-class FMPAlertContainerView: UIView {
+class FMPIndicatorView: UIView {
     
     //MARK: - Init
     
@@ -25,9 +25,9 @@ class FMPAlertContainerView: UIView {
     //MARK: - Helpers
     
     private func configureView() {
-        backgroundColor         = .white
-        layer.cornerRadius      = 16
-        layer.borderWidth       = 2
-        layer.borderColor       = UIColor.black.cgColor
+        backgroundColor     = .lightGray
+        alpha               = 0.8
+        layer.cornerRadius  = 5
     }
+    
 }

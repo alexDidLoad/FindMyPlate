@@ -31,6 +31,11 @@
 		110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */; };
 		110A01C525C7B16A000C66FC /* FMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01C425C7B16A000C66FC /* FMPViewController.swift */; };
 		110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01C725C7BB52000C66FC /* FMPDataSource.swift */; };
+		110A01CE25C8EFBE000C66FC /* FMPMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01CD25C8EFBE000C66FC /* FMPMapVC.swift */; };
+		110A01D225C8F2BB000C66FC /* FMPCenterOnUserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */; };
+		110A01D525C8F572000C66FC /* FMPExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01D425C8F572000C66FC /* FMPExitButton.swift */; };
+		110A01E025C8F8AE000C66FC /* FMPIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */; };
+		110A01E325C8FAF3000C66FC /* MapResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01E225C8FAF3000C66FC /* MapResultsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCategoryVC.swift; sourceTree = "<group>"; };
 		110A01C425C7B16A000C66FC /* FMPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPViewController.swift; sourceTree = "<group>"; };
 		110A01C725C7BB52000C66FC /* FMPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPDataSource.swift; sourceTree = "<group>"; };
+		110A01CD25C8EFBE000C66FC /* FMPMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapVC.swift; sourceTree = "<group>"; };
+		110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCenterOnUserButton.swift; sourceTree = "<group>"; };
+		110A01D425C8F572000C66FC /* FMPExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPExitButton.swift; sourceTree = "<group>"; };
+		110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPIndicatorView.swift; sourceTree = "<group>"; };
+		110A01E225C8FAF3000C66FC /* MapResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapResultsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 				110A018725C69F93000C66FC /* Screens */,
 				110A019F25C76759000C66FC /* AlertVC */,
 				110A01C125C7AD9E000C66FC /* ParentVC */,
+				110A01E525C8FAF7000C66FC /* ChildVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 			children = (
 				110A016225C52126000C66FC /* FMPHomeVC.swift */,
 				110A01BB25C7AD49000C66FC /* FMPCategoryVC.swift */,
+				110A01CD25C8EFBE000C66FC /* FMPMapVC.swift */,
 				110A016C25C66ED2000C66FC /* FMPFavoritesVC.swift */,
 			);
 			path = Screens;
@@ -188,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				110A018025C694F3000C66FC /* FMPEnableLocationButton.swift */,
+				110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */,
+				110A01D425C8F572000C66FC /* FMPExitButton.swift */,
 			);
 			path = "Custom Buttons";
 			sourceTree = "<group>";
@@ -205,6 +219,7 @@
 			children = (
 				110A018B25C6A01D000C66FC /* FMPAlertContainerView.swift */,
 				110A01AF25C79663000C66FC /* FMPItemImageView.swift */,
+				110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -231,6 +246,14 @@
 				110A01C725C7BB52000C66FC /* FMPDataSource.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		110A01E525C8FAF7000C66FC /* ChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				110A01E225C8FAF3000C66FC /* MapResultsVC.swift */,
+			);
+			path = ChildVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,15 +335,20 @@
 				110A018F25C6A196000C66FC /* FMPTitleLabel.swift in Sources */,
 				110A018125C694F3000C66FC /* FMPEnableLocationButton.swift in Sources */,
 				110A016D25C66ED2000C66FC /* FMPFavoritesVC.swift in Sources */,
+				110A01E025C8F8AE000C66FC /* FMPIndicatorView.swift in Sources */,
+				110A01D225C8F2BB000C66FC /* FMPCenterOnUserButton.swift in Sources */,
 				110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */,
+				110A01CE25C8EFBE000C66FC /* FMPMapVC.swift in Sources */,
 				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
 				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
 				110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */,
 				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
 				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
 				110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */,
+				110A01E325C8FAF3000C66FC /* MapResultsVC.swift in Sources */,
 				110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */,
 				110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */,
+				110A01D525C8F572000C66FC /* FMPExitButton.swift in Sources */,
 				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,
 				110A01B025C79663000C66FC /* FMPItemImageView.swift in Sources */,
 				110A016825C66E75000C66FC /* FMPTabBar.swift in Sources */,
