@@ -11,6 +11,8 @@ enum CuisineType: CaseIterable {
     case american, french, italian, mexican, japanese, chinese, thai, korean
 }
 
+
+
 class FMPDataSource: NSObject, UICollectionViewDataSource {
     
     //MARK: - Properties
@@ -104,6 +106,7 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
         cell.set(withImage: cuisineImage!, text: cuisineText)
         return cell
     }
+    
     
     private func setImage(to cuisine: [String], atIndexPath indexPath: IndexPath) -> UIImage {
         guard let image = UIImage(named: cuisine[indexPath.row]) else { return SFSymbols.questionmark! }

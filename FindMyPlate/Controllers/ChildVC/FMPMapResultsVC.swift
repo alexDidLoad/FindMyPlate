@@ -14,7 +14,7 @@ class FMPMapResultsVC: UIViewController {
     
     //MARK: - Properties
     
-    private var tableView: UITableView!
+    var tableView: UITableView!
     
     //MARK: - Lifecycle
     
@@ -27,12 +27,14 @@ class FMPMapResultsVC: UIViewController {
     //MARK: - Helper
     
     private func configureTableView() {
-        tableView            = UITableView()
-        tableView.rowHeight  = 80
-        tableView.delegate   = self
-        tableView.dataSource = self
+        tableView                                = UITableView()
+        tableView.rowHeight                      = 112
+        tableView.delegate                       = self
+        tableView.dataSource                     = self
+        tableView.isScrollEnabled                = false
         tableView.contentInsetAdjustmentBehavior = .never
-        //       register tableviewcell
+        tableView.register(FMPMapResultCell.self, forCellReuseIdentifier: FMPMapResultCell.reuseID)
+        
         
         view.addSubview(tableView)
         tableView.anchor(top: view.topAnchor,
@@ -51,15 +53,13 @@ class FMPMapResultsVC: UIViewController {
 
 extension FMPMapResultsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: FMPMapResultCell.reuseID, for: indexPath) as! FMPMapResultCell
+        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.001
-    }
 }

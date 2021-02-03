@@ -19,7 +19,6 @@ class FMPMapResultsContainerView: UIView {
         super.init(frame: frame)
         
         configureView()
-        
     }
     
     
@@ -27,9 +26,10 @@ class FMPMapResultsContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Helpers
     
     private func configureView() {
-        backgroundColor     = .white
+        backgroundColor     = .systemBackground
         layer.cornerRadius  = 14
         layer.shadowRadius  = 10
         layer.shadowColor   = UIColor.black.cgColor

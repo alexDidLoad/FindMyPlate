@@ -13,6 +13,7 @@ class FMPViewController: UIViewController {
     
     let containerView: UIView = {
         let cv                      = UIView()
+        cv.layer.cornerRadius       = 45
         cv.layer.shadowColor        = UIColor.black.cgColor
         cv.layer.shadowOffset       = .zero
         cv.layer.shadowOpacity      = 0.25
@@ -47,25 +48,29 @@ class FMPViewController: UIViewController {
         collectionView.anchor(top: containerView.bottomAnchor,
                               leading: view.leadingAnchor,
                               bottom: view.bottomAnchor,
-                              trailing: view.trailingAnchor)
+                              trailing: view.trailingAnchor,
+                              paddingTop: -5)
     }
     
     
     private func configureUI() {
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(containerView)
         containerView.backgroundColor = .systemBackground
 
-        containerView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+        containerView.anchor(top: view.topAnchor,
                              leading: view.leadingAnchor,
                              trailing: view.trailingAnchor,
-                             height: 100)
+                             paddingTop: 40,
+                             height: 150)
         
         containerView.addSubview(titleLabel)
-        titleLabel.anchor(top: containerView.topAnchor,
-                          leading: containerView.leadingAnchor,
+        titleLabel.anchor(leading: containerView.leadingAnchor,
+                          bottom: containerView.bottomAnchor,
                           trailing: containerView.trailingAnchor,
-                          paddingTop: 28,
                           paddingLeading: 20,
+                          paddingBottom: 50,
                           height: 28)
         
         containerView.addSubview(bodyLabel)

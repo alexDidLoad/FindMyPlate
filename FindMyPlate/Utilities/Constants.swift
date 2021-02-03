@@ -13,7 +13,10 @@ enum SFSymbols {
     static let questionmark = UIImage(systemName: "questionmark")
     static let viewFinder   = UIImage(systemName: "location.viewfinder")
     static let xmark        = UIImage(systemName: "xmark.circle.fill")
-    static let locationIcon = UIImage(named: "locationIcon")
+}
+
+enum Lottie {
+    static let locationIcon = "locationIcon"
 }
 
 enum Cuisine {

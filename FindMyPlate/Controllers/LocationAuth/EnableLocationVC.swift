@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Lottie
 import CoreLocation
 
 class EnableLocationVC: UIViewController {
     
     //MARK: - UIComponents
     
-    private let locationImageView: UIImageView = UIImageView(image: SFSymbols.locationIcon)
+    private let animationView = AnimationView(name: Lottie.locationIcon)
     private let enableLocationButton: FMPEnableLocationButton = {
         let button = FMPEnableLocationButton(frame: .zero)
         button.addTarget(self, action: #selector(enableButtonPressed), for: .touchUpInside)
@@ -27,6 +28,12 @@ class EnableLocationVC: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animationView.play()
+        animationView.loopMode = .loop
+    }
+    
     //MARK: - Helper
     
     private func handleDeniedAuth(_ manager: CLLocationManager) {
@@ -37,19 +44,22 @@ class EnableLocationVC: UIViewController {
     
     
     private func configureUI() {
+        
         view.backgroundColor = .white
+        let padding: CGFloat = 50
         
-        view.addSubview(locationImageView)
-        locationImageView.setDimensions(height: 180, width: 210)
-        locationImageView.centerInView(view: view)
+        view.addSubview(animationView)
+        animationView.centerX(inView: view)
+        animationView.anchor(top: view.topAnchor,
+                             paddingTop: 30)
         
-        view.addSubview(enableLocationButton)
-        enableLocationButton.anchor(top: locationImageView.bottomAnchor,
-                                    leading: view.leadingAnchor,
+        animationView.addSubview(enableLocationButton)
+        enableLocationButton.anchor(leading: view.leadingAnchor,
+                                    bottom: animationView.bottomAnchor,
                                     trailing: view.trailingAnchor,
-                                    paddingTop: 50,
-                                    paddingLeading: 50,
-                                    paddingTrailing: 50,
+                                    paddingLeading: padding,
+                                    paddingBottom: 30,
+                                    paddingTrailing: padding,
                                     height: 50)
     }
     

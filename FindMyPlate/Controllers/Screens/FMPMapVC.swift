@@ -20,6 +20,8 @@ class FMPMapVC: UIViewController {
     
     //MARK: - Properties
     
+    private let fmpTableVC = FMPMapResultsVC()
+    
     private var mapView: MKMapView!
     private var mapAnnotation: MKPointAnnotation!
     
@@ -32,13 +34,38 @@ class FMPMapVC: UIViewController {
         addPanGesture(to: resultContainerView)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         
         centerOnUserLocation(shouldLoadAnnotations: true)
     }
     
     //MARK: - Helpers
+    
+   
+    private func animate(containerView view: UIView) {
+        
+        let noExpansionY: CGFloat       = 1178.0
+        let partialExpansionY: CGFloat  = 960.0
+        let fullExpansionY: CGFloat     = 570.0
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+            if view.center.y > fullExpansionY + 175 {
+                if view.center.y > partialExpansionY + 125 {
+                    view.center.y = noExpansionY
+                    self.fmpTableVC.tableView.isScrollEnabled = false
+                } else {
+                    view.center.y = partialExpansionY
+                    self.fmpTableVC.tableView.isScrollEnabled = false
+                }
+            } else {
+                view.center.y = fullExpansionY
+                self.fmpTableVC.tableView.isScrollEnabled = true
+            }
+        }
+    }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
@@ -47,9 +74,11 @@ class FMPMapVC: UIViewController {
                             leading: containerView.leadingAnchor,
                             bottom: containerView.bottomAnchor,
                             trailing: containerView.trailingAnchor,
-                            paddingTop: 42)
+                            paddingTop: 42,
+                            paddingBottom: 196)
         childVC.didMove(toParent: self)
     }
+    
     
     private func addPanGesture(to view: UIView) {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(FMPMapVC.handlePan(sender:)))
@@ -57,23 +86,18 @@ class FMPMapVC: UIViewController {
     }
     
     
-    private func configureUI() {
-        configureMapView()
-        configureButtons()
-        configureResultView()
-    }
-    
-    
     private func configureResultView() {
-        view.addSubview(resultContainerView)
+        
         resultContainerView.backgroundColor = .white
+        
+        view.addSubview(resultContainerView)
         resultContainerView.anchor(leading: view.leadingAnchor,
                                    bottom: view.bottomAnchor,
                                    trailing: view.trailingAnchor,
-                                   paddingBottom: -(view.frame.height - 88),
+                                   paddingBottom: -(view.frame.height - 306),
                                    height: view.frame.height)
         
-        add(childVC: FMPMapResultsVC(), to: self.resultContainerView)
+        add(childVC: fmpTableVC, to: self.resultContainerView)
     }
     
     
@@ -107,18 +131,24 @@ class FMPMapVC: UIViewController {
                           paddingLeading: 16)
     }
     
+    
+    private func configureUI() {
+        configureMapView()
+        configureButtons()
+        configureResultView()
+    }
+    
     //MARK: - Selectors
     
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         let containerView = sender.view!
-        let translation = sender.translation(in: view)
+        let translation   = sender.translation(in: view)
         
         switch sender.state {
         case .began, .changed:
             containerView.center = CGPoint(x: containerView.center.x,
                                            y: containerView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: view)
-           
             
             if containerView.center.y < 570.0 {
                 containerView.center.y = 570.0
@@ -127,9 +157,8 @@ class FMPMapVC: UIViewController {
             }
             
         case .ended:
-            //set the state of the view in here in order to snap it into place
+            animate(containerView: containerView)
             
-            break
         case .possible, .cancelled, .failed:
             break
         @unknown default:
@@ -140,6 +169,7 @@ class FMPMapVC: UIViewController {
     //MARK: - MapKit Helpers
     
     private func centerOnUserLocation(shouldLoadAnnotations: Bool) {
+        
         guard let coordinate = LocationManager.shared.location?.coordinate else { return }
         let region           = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1500, longitudinalMeters: 1500)
         

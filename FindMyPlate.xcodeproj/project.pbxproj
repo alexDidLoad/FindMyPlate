@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,9 @@
 		110A01E025C8F8AE000C66FC /* FMPIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */; };
 		110A01E925C915AB000C66FC /* FMPMapResultsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */; };
 		110A01EC25C915C3000C66FC /* FMPMapResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */; };
+		110A020025CA9502000C66FC /* locationIcon.json in Resources */ = {isa = PBXBuildFile; fileRef = 110A01FF25CA9502000C66FC /* locationIcon.json */; };
+		110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020325CB4A0E000C66FC /* FMPMapResultCell.swift */; };
+		FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,11 @@
 		110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPIndicatorView.swift; sourceTree = "<group>"; };
 		110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultsContainerView.swift; sourceTree = "<group>"; };
 		110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultsVC.swift; sourceTree = "<group>"; };
+		110A01FF25CA9502000C66FC /* locationIcon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationIcon.json; sourceTree = "<group>"; };
+		110A020325CB4A0E000C66FC /* FMPMapResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultCell.swift; sourceTree = "<group>"; };
+		2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.debug.xcconfig"; sourceTree = "<group>"; };
+		2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.release.xcconfig"; sourceTree = "<group>"; };
+		CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +99,8 @@
 			children = (
 				110A014625C517DA000C66FC /* FindMyPlate */,
 				110A014525C517DA000C66FC /* Products */,
+				D053A240EDB20AA568A1F266 /* Pods */,
+				FD5ED1E83898B1F7A17D7BD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,7 +122,7 @@
 				110A016A25C66E7A000C66FC /* View */,
 				110A016525C66D72000C66FC /* Controllers */,
 				110A016F25C66FAD000C66FC /* Utilities */,
-				110A015325C517DC000C66FC /* Assets.xcassets */,
+				110A01FD25CA94CB000C66FC /* Assets */,
 				110A015525C517DC000C66FC /* LaunchScreen.storyboard */,
 				110A015825C517DC000C66FC /* Info.plist */,
 				110A015025C517DA000C66FC /* FindMyPlate.xcdatamodeld */,
@@ -231,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				110A01AA25C79599000C66FC /* FMPCuisineCell.swift */,
+				110A020325CB4A0E000C66FC /* FMPMapResultCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -259,6 +271,32 @@
 			path = ChildVC;
 			sourceTree = "<group>";
 		};
+		110A01FD25CA94CB000C66FC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				110A015325C517DC000C66FC /* Assets.xcassets */,
+				110A01FF25CA9502000C66FC /* locationIcon.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D053A240EDB20AA568A1F266 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */,
+				2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD5ED1E83898B1F7A17D7BD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 110A015B25C517DC000C66FC /* Build configuration list for PBXNativeTarget "FindMyPlate" */;
 			buildPhases = (
+				4F87169250AE2DBBA61FC3A9 /* [CP] Check Pods Manifest.lock */,
 				110A014025C517DA000C66FC /* Sources */,
 				110A014125C517DA000C66FC /* Frameworks */,
 				110A014225C517DA000C66FC /* Resources */,
+				A31B1295C516EE866496011A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,12 +356,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110A020025CA9502000C66FC /* locationIcon.json in Resources */,
 				110A015725C517DC000C66FC /* LaunchScreen.storyboard in Resources */,
 				110A015425C517DC000C66FC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F87169250AE2DBBA61FC3A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindMyPlate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A31B1295C516EE866496011A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		110A014025C517DA000C66FC /* Sources */ = {
@@ -344,6 +427,7 @@
 				110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */,
 				110A01CE25C8EFBE000C66FC /* FMPMapVC.swift in Sources */,
 				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
+				110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */,
 				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
 				110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */,
 				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
@@ -491,6 +575,7 @@
 		};
 		110A015C25C517DC000C66FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +596,7 @@
 		};
 		110A015D25C517DC000C66FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
