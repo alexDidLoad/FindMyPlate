@@ -68,12 +68,11 @@ class EnableLocationVC: UIViewController {
 extension EnableLocationVC: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard manager.location != nil else {
-            presentFYPAlertVC(with: "Unable to find location", message: "Please try again")
-            return
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            dismiss(animated: true)
+        } else {
+            handleDeniedAuth(LocationManager.shared)
         }
-        
-        dismiss(animated: true)
     }
     
 }
