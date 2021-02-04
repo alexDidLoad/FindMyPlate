@@ -39,7 +39,9 @@
 		110A01EC25C915C3000C66FC /* FMPMapResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */; };
 		110A020025CA9502000C66FC /* locationIcon.json in Resources */ = {isa = PBXBuildFile; fileRef = 110A01FF25CA9502000C66FC /* locationIcon.json */; };
 		110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020325CB4A0E000C66FC /* FMPMapResultCell.swift */; };
-		110A020A25CB6E3F000C66FC /* YelpAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020925CB6E3F000C66FC /* YelpAPIKey.swift */; };
+		110A020D25CB6FD3000C66FC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020C25CB6FD3000C66FC /* Restaurant.swift */; };
+		110A021025CB7023000C66FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020F25CB7023000C66FC /* NetworkManager.swift */; };
+		110A021425CB8CA3000C66FC /* FMPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021325CB8CA3000C66FC /* FMPError.swift */; };
 		FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +80,9 @@
 		110A01EB25C915C3000C66FC /* FMPMapResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultsVC.swift; sourceTree = "<group>"; };
 		110A01FF25CA9502000C66FC /* locationIcon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationIcon.json; sourceTree = "<group>"; };
 		110A020325CB4A0E000C66FC /* FMPMapResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPMapResultCell.swift; sourceTree = "<group>"; };
-		110A020925CB6E3F000C66FC /* YelpAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIKey.swift; sourceTree = "<group>"; };
+		110A020C25CB6FD3000C66FC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		110A020F25CB7023000C66FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		110A021325CB8CA3000C66FC /* FMPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPError.swift; sourceTree = "<group>"; };
 		2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.release.xcconfig"; sourceTree = "<group>"; };
 		CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +167,7 @@
 				110A017525C689D0000C66FC /* UIView+Ext.swift */,
 				110A019625C75467000C66FC /* UIViewController+Ext.swift */,
 				110A01A125C76D47000C66FC /* UIHelper.swift */,
-				110A020925CB6E3F000C66FC /* YelpAPIKey.swift */,
+				110A021325CB8CA3000C66FC /* FMPError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				110A019925C76569000C66FC /* LocationManager.swift */,
+				110A020F25CB7023000C66FC /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				110A01C725C7BB52000C66FC /* FMPDataSource.swift */,
+				110A020C25CB6FD3000C66FC /* Restaurant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,7 +424,6 @@
 				110A017625C689D0000C66FC /* UIView+Ext.swift in Sources */,
 				110A015225C517DA000C66FC /* FindMyPlate.xcdatamodeld in Sources */,
 				110A01C525C7B16A000C66FC /* FMPViewController.swift in Sources */,
-				110A020A25CB6E3F000C66FC /* YelpAPIKey.swift in Sources */,
 				110A01E925C915AB000C66FC /* FMPMapResultsContainerView.swift in Sources */,
 				110A019725C75467000C66FC /* UIViewController+Ext.swift in Sources */,
 				110A014825C517DA000C66FC /* AppDelegate.swift in Sources */,
@@ -434,8 +439,10 @@
 				110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */,
 				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
 				110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */,
+				110A021025CB7023000C66FC /* NetworkManager.swift in Sources */,
 				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
 				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
+				110A021425CB8CA3000C66FC /* FMPError.swift in Sources */,
 				110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */,
 				110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */,
 				110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */,
@@ -444,6 +451,7 @@
 				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,
 				110A01B025C79663000C66FC /* FMPItemImageView.swift in Sources */,
 				110A016825C66E75000C66FC /* FMPTabBar.swift in Sources */,
+				110A020D25CB6FD3000C66FC /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

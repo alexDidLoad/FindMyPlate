@@ -25,6 +25,21 @@ class FMPMapVC: UIViewController {
     private var mapView: MKMapView!
     private var mapAnnotation: MKPointAnnotation!
     
+    private var restaurantNumber: [String]! { didSet { fetchRestaurants() } }
+    private var selectedFood: String!
+    
+    //MARK: - Init
+    
+    init(selectedFood: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.selectedFood = selectedFood
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -44,7 +59,7 @@ class FMPMapVC: UIViewController {
     
     //MARK: - Helpers
     
-   
+    
     private func animate(containerView view: UIView) {
         
         let noExpansionY: CGFloat       = 1178.0
@@ -167,6 +182,45 @@ class FMPMapVC: UIViewController {
     }
     
     //MARK: - MapKit Helpers
+    
+    private func fetchRestaurants() {
+        restaurantNumber.forEach { number in NetworkManager.shared.requestYelpData(withPhoneNumber: number) }
+    }
+    
+    
+    private func loadRestaurantPhoneNumbers(withSearchQuery query: String) {
+        guard let userLocation = LocationManager.shared.location?.coordinate else { return }
+        let region             = MKCoordinateRegion(center: userLocation, latitudinalMeters: 100, longitudinalMeters: 100)
+        var phoneNumbers       = [String]()
+        
+        searchBy(naturalLanguageQuery: query, region: region, coordinates: userLocation) { [weak self] (response, error) in
+            guard let self     = self else { return }
+            guard let response = response else { return }
+            
+            response.mapItems.forEach({ mapItem in phoneNumbers.append(self.getMapItemPhoneNumber(mapItem)) })
+            DispatchQueue.main.async { self.restaurantNumber = phoneNumbers }
+        }
+    }
+    
+    
+    private func searchBy(naturalLanguageQuery: String, region: MKCoordinateRegion, coordinates: CLLocationCoordinate2D, completion: @escaping(_ response: MKLocalSearch.Response?, _ error: NSError?) -> Void) {
+        
+        let request                  = MKLocalSearch.Request()
+        request.region               = region
+        request.naturalLanguageQuery = naturalLanguageQuery
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            
+            guard let response = response else {
+                completion(nil, error! as NSError)
+                return
+            }
+            
+            completion(response, nil)
+        }
+    }
+    
     
     private func centerOnUserLocation(shouldLoadAnnotations: Bool) {
         

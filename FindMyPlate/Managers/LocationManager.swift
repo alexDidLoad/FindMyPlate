@@ -18,8 +18,4 @@ class LocationManager: CLLocationManager {
     
     private override init() {}
     
-    //MARK: - Helpers
-    
-    
-    
 }

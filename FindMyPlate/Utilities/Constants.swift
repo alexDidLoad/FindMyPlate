@@ -19,7 +19,7 @@ enum Lottie {
     static let locationIcon = "locationIcon"
 }
 
-enum Cuisine {
+enum Cuisine: CaseIterable {
     static let cuisines     = ["american", "french", "italian", "mexican", "japanese", "chinese", "thai", "korean"]
     static let americanFood = ["steak", "burgers", "fried chicken", "fast food", "hot dog", "salad"]
     static let frenchFood   = ["Pastries", "French Bistro", "Wine and Cheese"]
@@ -48,4 +48,9 @@ enum Title {
 enum Body {
     static let whatAreYouFeelingToday = "What type of cuisine are you feeling today?"
     static let whichCategory = "Which category of food would you like?"
+}
+
+enum LocationErrorMessage {
+    static let deniedLocationAuth = "Please enable Location"
+    static let goToSettings       = "Settings > Privacy > Location Services > Enable"
 }

@@ -63,7 +63,7 @@ class FMPViewController: UIViewController {
                              leading: view.leadingAnchor,
                              trailing: view.trailingAnchor,
                              paddingTop: 40,
-                             height: 150)
+                             height: 145)
         
         containerView.addSubview(titleLabel)
         titleLabel.anchor(leading: containerView.leadingAnchor,

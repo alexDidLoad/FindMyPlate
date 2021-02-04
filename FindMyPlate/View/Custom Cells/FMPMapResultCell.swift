@@ -75,9 +75,9 @@ class FMPMapResultCell: UITableViewCell {
         contentView.addSubview(favoriteButton)
         favoriteButton.centerY(inView: self)
         favoriteButton.anchor(trailing: goButton.leadingAnchor,
-                              paddingTrailing: 24,
-                              height: 30,
-                              width: 40)
+                              paddingTrailing: 16,
+                              height: 25,
+                              width: 35)
         
         addSubview(priceLabel)
         priceLabel.centerY(inView: self)
@@ -95,7 +95,7 @@ class FMPMapResultCell: UITableViewCell {
         restaurantLabel.centerY(inView: self)
         restaurantLabel.anchor(leading: leadingAnchor,
                                trailing: openOrClosedLabel.leadingAnchor,
-                               paddingLeading: 8,
+                               paddingLeading: 16,
                                paddingTrailing: 8)
         
         openOrClosedLabel.text = "Open"

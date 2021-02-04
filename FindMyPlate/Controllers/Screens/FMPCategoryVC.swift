@@ -90,11 +90,12 @@ class FMPCategoryVC: FMPViewController {
 extension FMPCategoryVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! FMPCuisineCell
         
-        let destinationVC = FMPMapVC()
-        destinationVC.modalPresentationStyle = .fullScreen
-        present(destinationVC, animated: true)
-        
+        guard let selectedFood        = cell.cuisineLabel.text else { return }
+        let destVC                    = FMPMapVC(selectedFood: selectedFood)
+        destVC.modalPresentationStyle = .fullScreen
+        present(destVC, animated: true)
     }
     
 }

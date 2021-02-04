@@ -12,7 +12,6 @@ enum CuisineType: CaseIterable {
 }
 
 
-
 class FMPDataSource: NSObject, UICollectionViewDataSource {
     
     //MARK: - Properties
@@ -25,7 +24,7 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
     
     init(withCuisine cuisine: CuisineType?) {
         super.init()
-       
+        
         cuisineType = cuisine
     }
     
@@ -38,25 +37,25 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
             
         case .french:
             return Cuisine.frenchFood.count
-        
+            
         case .italian:
             return Cuisine.italianFood.count
-        
+            
         case .mexican:
             return Cuisine.mexicanFood.count
-        
+            
         case .japanese:
             return Cuisine.japaneseFood.count
-        
+            
         case .chinese:
             return Cuisine.chineseFood.count
-        
+            
         case .thai:
             return Cuisine.thaiFood.count
-        
+            
         case .korean:
             return Cuisine.koreanFood.count
-        
+            
         default:
             return CuisineType.allCases.count
         }
@@ -92,7 +91,7 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
         case .thai:
             cuisineImage    = setImage(to: Cuisine.thaiFood, atIndexPath: indexPath)
             cuisineText     = Cuisine.thaiFood[indexPath.row].capitalized
-
+            
         case .korean:
             cuisineImage    = setImage(to: Cuisine.koreanFood, atIndexPath: indexPath)
             cuisineText     = Cuisine.koreanFood[indexPath.row].capitalized

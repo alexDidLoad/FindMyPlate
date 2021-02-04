@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 extension UIViewController {
@@ -18,6 +19,15 @@ extension UIViewController {
         DispatchQueue.main.async {
             self.present(alertVC, animated: true)
         }
+    }
+    
+    
+    func getMapItemPhoneNumber(_ item: MKMapItem) -> String {
+        let unwantedChars: Set<Character> = ["(", ")", "-"]
+        var mapNumber = item.phoneNumber?.replacingOccurrences(of: " ", with: "")
+        mapNumber?.removeAll(where: {unwantedChars.contains($0)})
+        guard let newNumber = mapNumber else { return "" }
+        return newNumber
     }
     
 }
