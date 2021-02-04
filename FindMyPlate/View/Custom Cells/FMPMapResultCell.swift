@@ -64,6 +64,12 @@ class FMPMapResultCell: UITableViewCell {
     
     //MARK: - Helpers
     
+    func set(restaurant: Restaurant) {
+        priceLabel.text = restaurant.price ?? "N/A"
+        restaurantLabel.text = restaurant.name ?? "N/A"
+        
+    }
+    
     private func configureCell() {
         selectionStyle = .none
         

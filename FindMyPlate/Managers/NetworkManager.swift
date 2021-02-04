@@ -22,7 +22,12 @@ class NetworkManager {
     
     //MARK: - Helpers
     
-    func getRestaurants(from request: URLRequest, completion: @escaping (Result<[Restaurant], FMPError>) -> Void) {
+    func getRestaurants(fromPhoneNumber phone: String, completion: @escaping (Result<[Restaurant], FMPError>) -> Void) {
+        
+        guard let url = URL(string: baseURL + "v3/businesses/search/phone?phone=\(phone)") else { return }
+        var request   = URLRequest(url: url)
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
@@ -31,7 +36,7 @@ class NetworkManager {
                 return
             }
             
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            guard let _ = response else {
                 completion(.failure(.invalidResponse))
                 return
             }
@@ -42,38 +47,41 @@ class NetworkManager {
             }
             
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let restaurants = try decoder.decode([Restaurant].self, from: data)
-                completion(.success(restaurants))
+                let json             = try JSONSerialization.jsonObject(with: data, options: [])
+                guard let response   = json as? NSDictionary else { return }
+                guard let businesses = response.value(forKey: "businesses") as? [NSDictionary] else { return }
+                var restaurantList   = [Restaurant]()
+                
+                for business in businesses {
+                    var restaurant          = Restaurant()
+                    restaurant.name         = business.value(forKey: "name") as? String
+                    restaurant.id           = business.value(forKey: "id") as? String
+                    restaurant.rating       = business.value(forKey: "rating") as? Float
+                    restaurant.price        = business.value(forKey: "price") as? String
+                    restaurant.is_closed    = business.value(forKey: "is_closed") as? Bool
+                    restaurant.distance     = business.value(forKey: "distance") as? Double
+                    restaurant.url          = business.value(forKey: "url") as? String
+                    restaurant.image_url    = business.value(forKey: "image_url") as? String
+                    restaurant.phone        = business.value(forKey: "phone") as? String
+                    
+                    let address             = (business["location"] as? [String: Any])?["address1"] as? String
+                    restaurant.address      = address
+                    
+                    let latitude            = (business["coordinates"] as? [String: Any])?["latitude"] as? Double
+                    let longitude           = (business["coordinates"] as? [String: Any])?["longitude"] as? Double
+                    restaurant.latitude     = latitude
+                    restaurant.longitude    = longitude
+                    
+                    restaurantList.append(restaurant)
+                }
+                
+                completion(.success(restaurantList))
             } catch {
                 completion(.failure(.invalidData))
             }
         }
         
         task.resume()
-    }
-    
-    
-    func requestYelpData(withPhoneNumber phone: String) {
-        
-        guard let url = URL(string: baseURL + "v3/businesses/search/phone?phone=\(phone)") else { return }
-        
-        var request   = URLRequest(url: url)
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
-        
-        getRestaurants(from: request) { [weak self] (result) in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let restaurants):
-                print(restaurants)
-            case .failure(let error):
-                print(error.rawValue)
-            }
-            
-        }
     }
     
 }

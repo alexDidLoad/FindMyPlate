@@ -30,4 +30,23 @@ extension UIViewController {
         return newNumber
     }
     
+    
+    func searchBy(naturalLanguageQuery: String, region: MKCoordinateRegion, coordinates: CLLocationCoordinate2D, completion: @escaping(_ response: MKLocalSearch.Response?, _ error: NSError?) -> Void) {
+        
+        let request                  = MKLocalSearch.Request()
+        request.region               = region
+        request.naturalLanguageQuery = naturalLanguageQuery
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            
+            guard let response = response else {
+                completion(nil, error! as NSError)
+                return
+            }
+            
+            completion(response, nil)
+        }
+    }
+    
 }

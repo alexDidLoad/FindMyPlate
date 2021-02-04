@@ -8,16 +8,32 @@
 import Foundation
 
 struct Restaurant: Codable {
+    
+    var uuid = UUID()
+    
     var name            : String?
     var id              : String?
     var rating          : Float?
     var price           : String?
-    var isClosed        : Bool?
+    var is_closed       : Bool?
     var distance        : Double?
     var address         : String?
     var latitude        : Double?
     var longitude       : Double?
     var url             : String?
-    var imageUrl        : String?
+    var image_url       : String?
     var phone           : String?
+}
+
+extension Restaurant: Hashable {
+    
+    static func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
+    
+    
 }

@@ -20,12 +20,12 @@ class FMPMapVC: UIViewController {
     
     //MARK: - Properties
     
-    private let fmpTableVC = FMPMapResultsVC()
+    private var fmpTableVC: FMPMapResultsVC!
     
     private var mapView: MKMapView!
     private var mapAnnotation: MKPointAnnotation!
     
-    private var restaurantNumber: [String]! { didSet { fetchRestaurants() } }
+    private var restaurants: [Restaurant]!
     private var selectedFood: String!
     
     //MARK: - Init
@@ -33,8 +33,11 @@ class FMPMapVC: UIViewController {
     init(selectedFood: String) {
         super.init(nibName: nil, bundle: nil)
         
-        self.selectedFood = selectedFood
+        self.selectedFood       = selectedFood
+        fmpTableVC = FMPMapResultsVC(selectedFood: selectedFood)
+        fmpTableVC.delegate = self
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -53,8 +56,7 @@ class FMPMapVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        centerOnUserLocation(shouldLoadAnnotations: true)
+        centerOnUserLocation()
     }
     
     //MARK: - Helpers
@@ -81,6 +83,7 @@ class FMPMapVC: UIViewController {
             }
         }
     }
+    
     
     private func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
@@ -183,66 +186,82 @@ class FMPMapVC: UIViewController {
     
     //MARK: - MapKit Helpers
     
-    private func fetchRestaurants() {
-        restaurantNumber.forEach { number in NetworkManager.shared.requestYelpData(withPhoneNumber: number) }
-    }
-    
-    
-    private func loadRestaurantPhoneNumbers(withSearchQuery query: String) {
-        guard let userLocation = LocationManager.shared.location?.coordinate else { return }
-        let region             = MKCoordinateRegion(center: userLocation, latitudinalMeters: 100, longitudinalMeters: 100)
-        var phoneNumbers       = [String]()
-        
-        searchBy(naturalLanguageQuery: query, region: region, coordinates: userLocation) { [weak self] (response, error) in
-            guard let self     = self else { return }
-            guard let response = response else { return }
-            
-            response.mapItems.forEach({ mapItem in phoneNumbers.append(self.getMapItemPhoneNumber(mapItem)) })
-            DispatchQueue.main.async { self.restaurantNumber = phoneNumbers }
+    private func zoomToFit(selectedAnnotation: MKAnnotation?) {
+        if mapView.annotations.count == 0 {
+            return
         }
-    }
-    
-    
-    private func searchBy(naturalLanguageQuery: String, region: MKCoordinateRegion, coordinates: CLLocationCoordinate2D, completion: @escaping(_ response: MKLocalSearch.Response?, _ error: NSError?) -> Void) {
+        var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 180)
+        var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -180)
         
-        let request                  = MKLocalSearch.Request()
-        request.region               = region
-        request.naturalLanguageQuery = naturalLanguageQuery
-        
-        let search = MKLocalSearch(request: request)
-        search.start { (response, error) in
-            
-            guard let response = response else {
-                completion(nil, error! as NSError)
-                return
+        if let selectedAnnotation = selectedAnnotation {
+            for annotation in mapView.annotations {
+                if let userAnnotation = annotation as? MKUserLocation {
+                    topLeftCoordinate.longitude     = fmin(topLeftCoordinate.longitude, userAnnotation.coordinate.longitude)
+                    topLeftCoordinate.latitude      = fmax(topLeftCoordinate.latitude, userAnnotation.coordinate.latitude)
+                    bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, userAnnotation.coordinate.longitude)
+                    bottomRightCoordinate.latitude  = fmin(bottomRightCoordinate.latitude, userAnnotation.coordinate.latitude)
+                }
+                if annotation.title == selectedAnnotation.title {
+                    topLeftCoordinate.longitude     = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
+                    topLeftCoordinate.latitude      = fmax(topLeftCoordinate.latitude, annotation.coordinate.latitude)
+                    bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
+                    bottomRightCoordinate.latitude  = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
+                }
             }
+            var region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.65, topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.65), span: MKCoordinateSpan(latitudeDelta: fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 3.0, longitudeDelta: fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 3.0))
             
-            completion(response, nil)
+            region = mapView.regionThatFits(region)
+            mapView.setRegion(region, animated: true)
         }
     }
     
     
-    private func centerOnUserLocation(shouldLoadAnnotations: Bool) {
+    private func centerOnUserLocation() {
         
         guard let coordinate = LocationManager.shared.location?.coordinate else { return }
-        let region           = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1500, longitudinalMeters: 1500)
+        let region           = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
         
-        //            if shouldLoadAnnotations {
-        //                loadRestaurantNumbers(withSearchQuery: foodCategory)
-        //            }
         mapView.setRegion(region, animated: true)
-        //            mapSearchView.expansionState = .NotExpanded
     }
     
 }
-//MARK: - MapViewDelegate
+//MARK: - MapViewDelegates
 
-extension FMPMapVC: MKMapViewDelegate {
+extension FMPMapVC: MKMapViewDelegate, FMPMapResultsVCDelegate {
+    
+    func didSelectAnnotation(withMapItem mapItem: MKMapItem) {
+        mapView.annotations.forEach({ annotation in
+           
+            if annotation.title != mapItem.name {
+                self.mapView.removeAnnotation(annotation)
+            } else {
+                self.mapView.selectAnnotation(annotation, animated: true)
+                self.zoomToFit(selectedAnnotation: annotation)
+            }
+        })
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+            self.resultContainerView.center.y = 960.0
+        }
+    }
+    
+    
+    func addAnnotations(forRestaurants restaurants: [Restaurant]) {
+        for restaurant in restaurants {
+            guard let latitude = restaurant.latitude, let longitude = restaurant.longitude else { return }
+            DispatchQueue.main.async {
+                self.mapAnnotation                      = MKPointAnnotation()
+                self.mapAnnotation.title                = restaurant.name
+                self.mapAnnotation.coordinate.latitude  = latitude
+                self.mapAnnotation.coordinate.longitude = longitude
+                self.mapView.addAnnotation(self.mapAnnotation)
+            }
+        }
+    }
+    
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         //do stuff when the annotation is selected
     }
-    
 }
 
 //MARK: - ButtonDelegates
@@ -250,7 +269,7 @@ extension FMPMapVC: MKMapViewDelegate {
 extension FMPMapVC: FMPCenterOnUserButtonDelegate, FMPExitButtonDelegate {
     
     func didPressCenter() {
-        centerOnUserLocation(shouldLoadAnnotations: false)
+        centerOnUserLocation()
     }
     
     
