@@ -100,11 +100,6 @@ class FMPMapResultsVC: UIViewController {
     
     private func updateUI(with restaurants: [Restaurant]) {
         
-        restaurants.forEach { restaurant in
-            
-        }
-        
-        
         self.restaurants.append(contentsOf: restaurants)
         self.updateData(on: self.restaurants)
         self.delegate?.addAnnotations(forRestaurants: restaurants)
@@ -130,12 +125,11 @@ class FMPMapResultsVC: UIViewController {
     
     private func configureTableView() {
         tableView                                = UITableView()
-        tableView.rowHeight                      = 112
+        tableView.rowHeight                      = 142
         tableView.delegate                       = self
         tableView.isScrollEnabled                = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(FMPMapResultCell.self, forCellReuseIdentifier: FMPMapResultCell.reuseID)
-        
         
         view.addSubview(tableView)
         tableView.anchor(top: view.topAnchor,

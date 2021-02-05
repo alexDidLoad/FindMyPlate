@@ -18,30 +18,21 @@ class FMPMapResultCell: UITableViewCell {
     
     //MARK: - UIComponents
     
-    private lazy var goButton: UIButton = {
-        let button                  = UIButton(type: .system)
-        button.alpha                = 1
-        button.tintColor            = .white
-        button.backgroundColor      = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-        button.layer.cornerRadius   = 5
-        button.setDimensions(height: 50, width: 50)
-        button.setImage(UIImage(systemName: "car.fill"), for: .normal)
-        button.addTarget(self, action: #selector(handleGo), for: .touchUpInside)
+    private lazy var directionsButton: FMPDirectionsButton = {
+        let button = FMPDirectionsButton()
+        button.addTarget(self, action: #selector(handleDirections), for: .touchUpInside)
         return button
     }()
     
-    private lazy var favoriteButton: UIButton = {
-        let button       = UIButton(type: .system)
-        button.tintColor = UIColor.lightGray.withAlphaComponent(0.6)
-        button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        button.imageView?.fillView(button)
+    private lazy var favoriteButton: FMPFavoriteButton = {
+        let button = FMPFavoriteButton()
         button.addTarget(self, action: #selector(handleFavorite), for: .touchUpInside)
         return button
     }()
     
-    private let openOrClosedLabel = FMPTitleLabel(textAlignment: .center, fontSize: 12, textColor: .systemGreen)
-    private let priceLabel        = FMPTitleLabel(textAlignment: .center, fontSize: 16)
-    private let restaurantLabel   = FMPTitleLabel(textAlignment: .left, fontSize: 18)
+    private let openOrClosedLabel = FMPCloseOpenLabel()
+    private let priceLabel        = FMPTitleLabel(textAlignment: .center, fontSize: 14, textColor: .systemGreen)
+    private let restaurantLabel   = FMPTitleLabel(textAlignment: .left, fontSize: 16)
     
     //MARK: - Properties
     
@@ -71,47 +62,53 @@ class FMPMapResultCell: UITableViewCell {
     }
     
     private func configureCell() {
-        selectionStyle = .none
+        selectionStyle       = .none
+        let padding: CGFloat = 16
         
-        contentView.addSubview(goButton)
-        goButton.centerY(inView: self)
-        goButton.anchor(trailing: trailingAnchor,
-                        paddingTrailing: 16)
+        contentView.addSubview(directionsButton)
+        directionsButton.anchor(bottom: bottomAnchor,
+                                trailing: trailingAnchor,
+                                paddingBottom: padding,
+                                paddingTrailing: padding,
+                                height: 42,
+                                width: 110)
         
         contentView.addSubview(favoriteButton)
-        favoriteButton.centerY(inView: self)
-        favoriteButton.anchor(trailing: goButton.leadingAnchor,
-                              paddingTrailing: 16,
-                              height: 25,
-                              width: 35)
-        
-        addSubview(priceLabel)
-        priceLabel.centerY(inView: self)
-        priceLabel.anchor(trailing: favoriteButton.leadingAnchor,
-                          paddingTrailing: 6,
-                          width: 45)
+        favoriteButton.anchor(top: topAnchor,
+                              trailing: trailingAnchor,
+                              paddingTop: padding,
+                              paddingTrailing: padding,
+                              height: 24,
+                              width: 26)
         
         addSubview(openOrClosedLabel)
-        openOrClosedLabel.centerY(inView: self)
-        openOrClosedLabel.anchor(trailing: priceLabel.leadingAnchor,
-                                 paddingTrailing: 16,
-                                 height: 30)
+        openOrClosedLabel.anchor(top: topAnchor,
+                                 leading: leadingAnchor,
+                                 paddingTop: padding,
+                                 paddingLeading: padding)
         
         addSubview(restaurantLabel)
-        restaurantLabel.centerY(inView: self)
-        restaurantLabel.anchor(leading: leadingAnchor,
-                               trailing: openOrClosedLabel.leadingAnchor,
-                               paddingLeading: 16,
-                               paddingTrailing: 8)
+        restaurantLabel.anchor(top: openOrClosedLabel.bottomAnchor,
+                               leading: leadingAnchor,
+                               trailing: favoriteButton.trailingAnchor,
+                               paddingTop: 6,
+                               paddingLeading: padding,
+                               height: 38)
         
-        openOrClosedLabel.text = "Open"
+        addSubview(priceLabel)
+        priceLabel.anchor(top: restaurantLabel.bottomAnchor,
+                          leading: leadingAnchor,
+                          paddingTop: 8,
+                          paddingLeading: padding)
+        
+        openOrClosedLabel.text = "Closed"
         priceLabel.text = "$$$$"
         restaurantLabel.text = "A Random Restaurant with a long ass name"
     }
     
     //MARK: - Selectors
     
-    @objc private func handleGo() {
+    @objc private func handleDirections() {
         print("DEBUG: Handle go here...")
     }
     

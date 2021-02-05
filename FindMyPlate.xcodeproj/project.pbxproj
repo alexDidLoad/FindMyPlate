@@ -42,6 +42,10 @@
 		110A020D25CB6FD3000C66FC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020C25CB6FD3000C66FC /* Restaurant.swift */; };
 		110A021025CB7023000C66FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A020F25CB7023000C66FC /* NetworkManager.swift */; };
 		110A021425CB8CA3000C66FC /* FMPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021325CB8CA3000C66FC /* FMPError.swift */; };
+		110A021725CCA539000C66FC /* FMPDirectionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021625CCA539000C66FC /* FMPDirectionsButton.swift */; };
+		110A021A25CCB0F7000C66FC /* FMPFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021925CCB0F7000C66FC /* FMPFavoriteButton.swift */; };
+		110A021D25CCB38F000C66FC /* FMPCloseOpenLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021C25CCB38F000C66FC /* FMPCloseOpenLabel.swift */; };
+		110A022025CCC539000C66FC /* FMPStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021F25CCC539000C66FC /* FMPStarRatingView.swift */; };
 		FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +87,10 @@
 		110A020C25CB6FD3000C66FC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		110A020F25CB7023000C66FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		110A021325CB8CA3000C66FC /* FMPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPError.swift; sourceTree = "<group>"; };
+		110A021625CCA539000C66FC /* FMPDirectionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPDirectionsButton.swift; sourceTree = "<group>"; };
+		110A021925CCB0F7000C66FC /* FMPFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPFavoriteButton.swift; sourceTree = "<group>"; };
+		110A021C25CCB38F000C66FC /* FMPCloseOpenLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCloseOpenLabel.swift; sourceTree = "<group>"; };
+		110A021F25CCC539000C66FC /* FMPStarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPStarRatingView.swift; sourceTree = "<group>"; };
 		2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.release.xcconfig"; sourceTree = "<group>"; };
 		CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +204,7 @@
 			children = (
 				110A018E25C6A196000C66FC /* FMPTitleLabel.swift */,
 				110A019125C6A333000C66FC /* FMPBodyLabel.swift */,
+				110A021C25CCB38F000C66FC /* FMPCloseOpenLabel.swift */,
 			);
 			path = "Custom Labels";
 			sourceTree = "<group>";
@@ -223,6 +232,8 @@
 				110A018025C694F3000C66FC /* FMPEnableLocationButton.swift */,
 				110A01D125C8F2BB000C66FC /* FMPCenterOnUserButton.swift */,
 				110A01D425C8F572000C66FC /* FMPExitButton.swift */,
+				110A021625CCA539000C66FC /* FMPDirectionsButton.swift */,
+				110A021925CCB0F7000C66FC /* FMPFavoriteButton.swift */,
 			);
 			path = "Custom Buttons";
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 				110A01AF25C79663000C66FC /* FMPItemImageView.swift */,
 				110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */,
 				110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */,
+				110A021F25CCC539000C66FC /* FMPStarRatingView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -433,19 +445,23 @@
 				110A016D25C66ED2000C66FC /* FMPFavoritesVC.swift in Sources */,
 				110A01E025C8F8AE000C66FC /* FMPIndicatorView.swift in Sources */,
 				110A01D225C8F2BB000C66FC /* FMPCenterOnUserButton.swift in Sources */,
+				110A021725CCA539000C66FC /* FMPDirectionsButton.swift in Sources */,
 				110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */,
+				110A022025CCC539000C66FC /* FMPStarRatingView.swift in Sources */,
 				110A01CE25C8EFBE000C66FC /* FMPMapVC.swift in Sources */,
 				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
 				110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */,
 				110A017125C66FC9000C66FC /* Constants.swift in Sources */,
 				110A018C25C6A01D000C66FC /* FMPAlertContainerView.swift in Sources */,
 				110A021025CB7023000C66FC /* NetworkManager.swift in Sources */,
+				110A021D25CCB38F000C66FC /* FMPCloseOpenLabel.swift in Sources */,
 				110A01A225C76D47000C66FC /* UIHelper.swift in Sources */,
 				110A018525C69F86000C66FC /* FYPAlertVC.swift in Sources */,
 				110A021425CB8CA3000C66FC /* FMPError.swift in Sources */,
 				110A016325C52126000C66FC /* FMPHomeVC.swift in Sources */,
 				110A01BC25C7AD49000C66FC /* FMPCategoryVC.swift in Sources */,
 				110A01C825C7BB52000C66FC /* FMPDataSource.swift in Sources */,
+				110A021A25CCB0F7000C66FC /* FMPFavoriteButton.swift in Sources */,
 				110A01D525C8F572000C66FC /* FMPExitButton.swift in Sources */,
 				110A01EC25C915C3000C66FC /* FMPMapResultsVC.swift in Sources */,
 				110A017D25C69291000C66FC /* EnableLocationVC.swift in Sources */,

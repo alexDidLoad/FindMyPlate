@@ -14,7 +14,7 @@ class NetworkManager {
     static let shared   = NetworkManager()
     
     private let baseURL = "https://api.yelp.com/"
-    private let apiKey  = "nWw_wNDWE2ePm7iYF7x6ovwGfZrOeL_Rxf1IKqRbm66cF2Og6D-vhMYOrqgCMS_DajR0eGwEetArAKQ6UTtcMnDOXoS1s96TIFUg4sV07QRaQBJYT3l_pNTUJR0BYHYx"
+    private let apiKey  = "tVZXzeGIlJszxne7a8-NA35qptfSQ-ZRqklN8U6oY737KqbcE8PuP4ALQ8Gg6RI9lH1St7dxRdIsXUGI9gcUI90F5H4nXB9-8y1HbbX-Sa1o4gOcw6exl8n_uokcYHYx"
     
     //MARK: - Lifecycle
     

@@ -260,7 +260,7 @@ extension FMPMapVC: MKMapViewDelegate, FMPMapResultsVCDelegate {
     
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        //do stuff when the annotation is selected
+        zoomToFit(selectedAnnotation: view.annotation)
     }
 }
 
