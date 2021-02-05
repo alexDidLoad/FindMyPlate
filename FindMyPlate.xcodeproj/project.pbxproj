@@ -45,7 +45,6 @@
 		110A021725CCA539000C66FC /* FMPDirectionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021625CCA539000C66FC /* FMPDirectionsButton.swift */; };
 		110A021A25CCB0F7000C66FC /* FMPFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021925CCB0F7000C66FC /* FMPFavoriteButton.swift */; };
 		110A021D25CCB38F000C66FC /* FMPCloseOpenLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021C25CCB38F000C66FC /* FMPCloseOpenLabel.swift */; };
-		110A022025CCC539000C66FC /* FMPStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A021F25CCC539000C66FC /* FMPStarRatingView.swift */; };
 		FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +89,6 @@
 		110A021625CCA539000C66FC /* FMPDirectionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPDirectionsButton.swift; sourceTree = "<group>"; };
 		110A021925CCB0F7000C66FC /* FMPFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPFavoriteButton.swift; sourceTree = "<group>"; };
 		110A021C25CCB38F000C66FC /* FMPCloseOpenLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPCloseOpenLabel.swift; sourceTree = "<group>"; };
-		110A021F25CCC539000C66FC /* FMPStarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPStarRatingView.swift; sourceTree = "<group>"; };
 		2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.release.xcconfig"; sourceTree = "<group>"; };
 		CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,7 +251,6 @@
 				110A01AF25C79663000C66FC /* FMPItemImageView.swift */,
 				110A01DF25C8F8AE000C66FC /* FMPIndicatorView.swift */,
 				110A01E825C915AB000C66FC /* FMPMapResultsContainerView.swift */,
-				110A021F25CCC539000C66FC /* FMPStarRatingView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -447,7 +444,6 @@
 				110A01D225C8F2BB000C66FC /* FMPCenterOnUserButton.swift in Sources */,
 				110A021725CCA539000C66FC /* FMPDirectionsButton.swift in Sources */,
 				110A019225C6A333000C66FC /* FMPBodyLabel.swift in Sources */,
-				110A022025CCC539000C66FC /* FMPStarRatingView.swift in Sources */,
 				110A01CE25C8EFBE000C66FC /* FMPMapVC.swift in Sources */,
 				110A014A25C517DA000C66FC /* SceneDelegate.swift in Sources */,
 				110A020425CB4A0E000C66FC /* FMPMapResultCell.swift in Sources */,

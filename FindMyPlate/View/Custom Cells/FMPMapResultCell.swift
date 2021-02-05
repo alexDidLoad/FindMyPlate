@@ -58,7 +58,6 @@ class FMPMapResultCell: UITableViewCell {
     func set(restaurant: Restaurant) {
         priceLabel.text = restaurant.price ?? "N/A"
         restaurantLabel.text = restaurant.name ?? "N/A"
-        
     }
     
     private func configureCell() {
@@ -100,6 +99,7 @@ class FMPMapResultCell: UITableViewCell {
                           leading: leadingAnchor,
                           paddingTop: 8,
                           paddingLeading: padding)
+        
         
         openOrClosedLabel.text = "Closed"
         priceLabel.text = "$$$$"

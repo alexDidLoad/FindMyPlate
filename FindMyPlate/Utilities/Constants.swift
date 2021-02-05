@@ -15,6 +15,7 @@ enum SFSymbols {
     static let xmark        = UIImage(systemName: "xmark.circle.fill")
     static let car          = UIImage(systemName: "car.fill")
     static let emptyStar    = UIImage(systemName: "star")
+    static let star         = UIImage(systemName: "star.fill")
 }
 
 
