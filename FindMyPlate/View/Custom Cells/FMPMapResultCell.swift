@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import CoreData
 import Cosmos
 
 protocol FMPMapResultCellDelegate: AnyObject {
@@ -53,7 +52,6 @@ class FMPMapResultCell: UITableViewCell {
     
     private let context    = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var isFavorite = false
-    private var favorite: Favorite?
     var selectedIndex: Int!
     
     private var restaurant: Restaurant!
@@ -158,8 +156,8 @@ class FMPMapResultCell: UITableViewCell {
                                    trailing: trailingAnchor,
                                    paddingBottom: edgePadding,
                                    paddingTrailing: edgePadding,
-                                   height: 80,
-                                   width: 120)
+                                   height: 100,
+                                   width: 130)
         
         addSubview(openOrClosedLabel)
         openOrClosedLabel.anchor(top: topAnchor,
@@ -172,21 +170,21 @@ class FMPMapResultCell: UITableViewCell {
         restaurantLabel.anchor(top: openOrClosedLabel.bottomAnchor,
                                leading: leadingAnchor,
                                trailing: restaurantImageView.leadingAnchor,
-                               paddingTop: 6,
+                               paddingTop: 12,
                                paddingLeading: edgePadding,
                                paddingTrailing: 6,
-                               height: 38)
+                               height: 20)
         
         addSubview(priceLabel)
         priceLabel.anchor(top: restaurantLabel.bottomAnchor,
                           leading: leadingAnchor,
-                          paddingTop: 6,
+                          paddingTop: 12,
                           paddingLeading: edgePadding)
         
         addSubview(starRatingView)
         starRatingView.anchor(top: priceLabel.bottomAnchor,
                               leading: leadingAnchor,
-                              paddingTop: 8,
+                              paddingTop: 12,
                               paddingLeading: edgePadding)
         
         addSubview(reviewCountLabel)
@@ -222,8 +220,8 @@ class FMPMapResultCell: UITableViewCell {
             favoriteButton.tintColor = .systemRed
         } else {
             if let favorites = CoreDataManager.shared.fetchFavorite() {
-                favorite = favorites[selectedIndex]
-                CoreDataManager.shared.deleteFavorite(favorite!)
+               let favorite = favorites[selectedIndex]
+                CoreDataManager.shared.deleteFavorite(favorite)
             }
             favoriteButton.tintColor = UIColor.lightGray.withAlphaComponent(0.6)
         }

@@ -57,4 +57,19 @@ extension UIViewController {
         safariVC.preferredControlTintColor = .systemRed
         present(safariVC, animated: true)
     }
+    
+    
+    func animateCollectionViewCell(_ collectionView: UICollectionView, atIndexPath indexPath: IndexPath, presentingVC: UIViewController? = nil) {
+        let selectedCell = collectionView.cellForItem(at: indexPath)
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+            selectedCell?.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        } completion: { _ in
+            guard let presentingVC = presentingVC else { return }
+            self.navigationController?.pushViewController(presentingVC, animated: true)
+        }
+        UIView.animate(withDuration: 0.2, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+            selectedCell?.transform = .identity
+        }
+    }
 }

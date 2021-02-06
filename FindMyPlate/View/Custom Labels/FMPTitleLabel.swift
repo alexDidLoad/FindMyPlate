@@ -35,6 +35,5 @@ class FMPTitleLabel: UILabel {
         textColor                   = .label
         adjustsFontSizeToFitWidth   = true
         minimumScaleFactor          = 0.9
-        numberOfLines               = 0
     }
 }

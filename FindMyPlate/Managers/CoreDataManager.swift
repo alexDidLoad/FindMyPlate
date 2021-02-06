@@ -37,8 +37,8 @@ class CoreDataManager {
         newFavorite.latitude    = latitude
         newFavorite.longitude   = longitude
         
-        convertImageFrom(urlString: restaurant.image_url!) { data in
-            newFavorite.image = data
+        convertImageFrom(urlString: restaurant.image_url!) { imageData in
+            newFavorite.image = imageData
         }
         
         do {

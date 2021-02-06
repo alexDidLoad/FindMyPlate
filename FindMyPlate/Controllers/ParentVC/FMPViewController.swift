@@ -41,9 +41,6 @@ class FMPViewController: UIViewController {
     
     //MARK: - Helpers
     
-    
-    
-    
     private func configureCollectionView() {
         collectionView                      = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createTwoColumnFlowLayout(in: view))
         collectionView.backgroundColor      = .systemBackground

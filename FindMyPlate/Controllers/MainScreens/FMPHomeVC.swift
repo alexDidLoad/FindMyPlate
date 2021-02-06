@@ -46,7 +46,7 @@ extension FMPHomeVC: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let destinationVC = FMPCategoryVC(selectedCuisine: CuisineType.allCases[indexPath.row])
-        navigationController?.pushViewController(destinationVC, animated: true)
+        animateCollectionViewCell(collectionView, atIndexPath: indexPath, presentingVC: destinationVC)
     }
     
 }

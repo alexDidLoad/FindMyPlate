@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				110A018925C69FA3000C66FC /* LocationAuth */,
-				110A018725C69F93000C66FC /* Screens */,
+				110A018725C69F93000C66FC /* MainScreens */,
 				110A019F25C76759000C66FC /* AlertVC */,
 				110A01C125C7AD9E000C66FC /* ParentVC */,
 				110A01E525C8FAF7000C66FC /* ChildVC */,
@@ -186,7 +186,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		110A018725C69F93000C66FC /* Screens */ = {
+		110A018725C69F93000C66FC /* MainScreens */ = {
 			isa = PBXGroup;
 			children = (
 				110A016225C52126000C66FC /* FMPHomeVC.swift */,
@@ -194,7 +194,7 @@
 				110A01CD25C8EFBE000C66FC /* FMPMapVC.swift */,
 				110A016C25C66ED2000C66FC /* FMPFavoritesVC.swift */,
 			);
-			path = Screens;
+			path = MainScreens;
 			sourceTree = "<group>";
 		};
 		110A018925C69FA3000C66FC /* LocationAuth */ = {
