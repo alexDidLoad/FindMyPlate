@@ -12,11 +12,10 @@ struct Restaurant: Codable {
     var uuid = UUID()
     
     var name            : String?
-    var id              : String?
     var rating          : Float?
+    var review_count    : Int?
     var price           : String?
     var is_closed       : Bool?
-    var distance        : Double?
     var address         : String?
     var latitude        : Double?
     var longitude       : Double?

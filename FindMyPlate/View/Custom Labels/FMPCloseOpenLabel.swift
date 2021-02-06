@@ -9,13 +9,6 @@ import UIKit
 
 class FMPCloseOpenLabel: UILabel {
     
-    //MARK: - UIComponents
-    
-    
-    //MARK: - Properties
-    
-    
-    
     //MARK: - Init
     
     override init(frame: CGRect) {
@@ -33,9 +26,9 @@ class FMPCloseOpenLabel: UILabel {
     
     private func configureLabel() {
         
-        backgroundColor    = UIColor.systemRed.withAlphaComponent(0.1)
-        textColor          = UIColor.systemRed
-        textAlignment      = .center
-        font               = UIFont.systemFont(ofSize: 12, weight: .regular)
+        textAlignment       = .center
+        font                = UIFont.systemFont(ofSize: 12, weight: .regular)
+        layer.cornerRadius  = 6
+        layer.masksToBounds = true
     }
 }

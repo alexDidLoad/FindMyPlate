@@ -6,6 +6,7 @@ target 'FindMyPlate' do
   use_frameworks!
 
   pod 'lottie-ios'
+  pod 'Cosmos', '~> 23.0'
 
   # Pods for FindMyPlate
 

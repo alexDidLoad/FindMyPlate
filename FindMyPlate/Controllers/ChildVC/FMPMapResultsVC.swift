@@ -16,6 +16,10 @@ protocol FMPMapResultsVCDelegate: AnyObject {
 
 class FMPMapResultsVC: UIViewController {
     
+    //MARK: - UIComponents
+    
+    private var containerView = UIView()
+    
     //MARK: - Properties
     
     enum Section { case main }
@@ -53,21 +57,37 @@ class FMPMapResultsVC: UIViewController {
     
     //MARK: - Helper
     
-    private func didSelectRestaurant(_ restaurants: [Restaurant], selectedRestaurant: Restaurant, atIndexPath indexPath: IndexPath) -> [Restaurant] {
-        var restaurants = restaurants
-        restaurants.remove(at: indexPath.row)
-        restaurants.insert(selectedRestaurant, at: 0)
-        restaurants.removeSubrange(1..<restaurants.count)
-        updateData(on: restaurants)
-        return restaurants
+    private func showLoadingView() {
+        containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 150)
+        view.addSubview(containerView)
+        
+        containerView.backgroundColor = .systemBackground
+        containerView.alpha = 0
+        
+        UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        containerView.addSubview(activityIndicator)
+        activityIndicator.centerInView(view: containerView)
+        
+        activityIndicator.startAnimating()
+    }
+    
+    
+    private func dismissLoadingview() {
+        DispatchQueue.main.async {
+            self.containerView.removeFromSuperview()
+        }
     }
     
     
     private func fetchRestaurants(with numbers: [String]) {
+      showLoadingView()
         numbers.forEach({ number in
             NetworkManager.shared.getRestaurants(fromPhoneNumber: number) { [weak self] result in
                 guard let self = self else { return }
-                
+                self.dismissLoadingview()
+
                 switch result {
                 case .success(let restaurants):
                     self.updateUI(with: restaurants)
@@ -148,9 +168,16 @@ extension FMPMapResultsVC: UITableViewDelegate {
         let selectedMapItem    = MKMapItem()
         let selectedRestaurant = restaurants[indexPath.row]
         selectedMapItem.name   = selectedRestaurant.name
-
+        
         delegate?.didSelectAnnotation(withMapItem: selectedMapItem)
-        self.restaurants = didSelectRestaurant(restaurants, selectedRestaurant: selectedRestaurant, atIndexPath: indexPath)
+        
+        restaurants.remove(at: indexPath.row)
+        restaurants.insert(selectedRestaurant, at: 0)
+        restaurants.removeSubrange(1..<restaurants.count)
+        updateData(on: restaurants)
+        
+        let newIndexPath = IndexPath(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: newIndexPath) as? FMPMapResultCell else { return }
+        cell.directionsButton.alpha = 1
     }
-    
 }

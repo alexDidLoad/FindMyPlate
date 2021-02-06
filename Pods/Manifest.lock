@@ -1,16 +1,20 @@
 PODS:
+  - Cosmos (23.0.0)
   - lottie-ios (3.2.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 23.0)
   - lottie-ios
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - lottie-ios
 
 SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   lottie-ios: b6b911246246a90a1d25e7388afe6d9ef003d293
 
-PODFILE CHECKSUM: 22fcd5a2b39954103c15202df61f7de262035833
+PODFILE CHECKSUM: abcf4325f2dd6dfa34937ff8d16d21b84056642e
 
 COCOAPODS: 1.9.3

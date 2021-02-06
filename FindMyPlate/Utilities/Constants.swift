@@ -11,11 +11,9 @@ enum SFSymbols {
     static let home         = UIImage(systemName: "house.fill")
     static let heart        = UIImage(systemName: "heart.fill")
     static let questionmark = UIImage(systemName: "questionmark")
-    static let viewFinder   = UIImage(systemName: "location.viewfinder")
+    static let paperPlane   = UIImage(systemName: "paperplane.fill")
     static let xmark        = UIImage(systemName: "xmark.circle.fill")
     static let car          = UIImage(systemName: "car.fill")
-    static let emptyStar    = UIImage(systemName: "star")
-    static let star         = UIImage(systemName: "star.fill")
 }
 
 
@@ -53,7 +51,8 @@ enum Title {
 
 enum Body {
     static let whatAreYouFeelingToday = "What type of cuisine are you feeling today?"
-    static let whichCategory = "Which category of food would you like?"
+    static let whichCategory          = "Which category of food would you like?"
+    static let notAvailable           = "N/A"
 }
 
 

@@ -33,11 +33,13 @@ class FMPCenterOnUserButton: UIButton {
     //MARK: - Helpers
     
     private func configureButton() {
-        imageView?.setDimensions(height: 40, width: 45)
-        setImage(SFSymbols.viewFinder, for: .normal)
+        imageView?.setDimensions(height: 30, width: 35)
+        setImage(SFSymbols.paperPlane, for: .normal)
         
         backgroundColor     = UIColor.white
         tintColor           = .systemRed
+        layer.borderWidth   = 2
+        layer.borderColor   = UIColor.black.withAlphaComponent(0.2).cgColor
         layer.cornerRadius  = 13
         layer.shadowColor   = UIColor.black.cgColor
         layer.shadowRadius  = 1

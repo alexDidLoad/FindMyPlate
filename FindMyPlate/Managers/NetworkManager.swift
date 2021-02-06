@@ -54,21 +54,19 @@ class NetworkManager {
                 
                 for business in businesses {
                     var restaurant          = Restaurant()
-                    restaurant.name         = business.value(forKey: "name") as? String
-                    restaurant.id           = business.value(forKey: "id") as? String
-                    restaurant.rating       = business.value(forKey: "rating") as? Float
-                    restaurant.price        = business.value(forKey: "price") as? String
-                    restaurant.is_closed    = business.value(forKey: "is_closed") as? Bool
-                    restaurant.distance     = business.value(forKey: "distance") as? Double
-                    restaurant.url          = business.value(forKey: "url") as? String
-                    restaurant.image_url    = business.value(forKey: "image_url") as? String
-                    restaurant.phone        = business.value(forKey: "phone") as? String
+                    restaurant.name         = business.value(forKey: "name")            as? String
+                    restaurant.rating       = business.value(forKey: "rating")          as? Float
+                    restaurant.review_count = business.value(forKey: "review_count")    as? Int
+                    restaurant.price        = business.value(forKey: "price")           as? String
+                    restaurant.is_closed    = business.value(forKey: "is_closed")       as? Bool
+                    restaurant.url          = business.value(forKey: "url")             as? String
+                    restaurant.image_url    = business.value(forKey: "image_url")       as? String
+                    restaurant.phone        = business.value(forKey: "phone")           as? String
                     
-                    let address             = (business["location"] as? [String: Any])?["address1"] as? String
-                    restaurant.address      = address
-                    
-                    let latitude            = (business["coordinates"] as? [String: Any])?["latitude"] as? Double
+                    let address             = (business["location"]    as? [String: Any])?["address1"]  as? String
+                    let latitude            = (business["coordinates"] as? [String: Any])?["latitude"]  as? Double
                     let longitude           = (business["coordinates"] as? [String: Any])?["longitude"] as? Double
+                    restaurant.address      = address
                     restaurant.latitude     = latitude
                     restaurant.longitude    = longitude
                     
