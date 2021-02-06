@@ -1,18 +1,18 @@
 //
-//  FMPDirectionsButton.swift
+//  FMPWebsiteButton.swift
 //  FindMyPlate
 //
-//  Created by Alexander Ha on 2/4/21.
+//  Created by Alexander Ha on 2/5/21.
 //
 
 import UIKit
 
-class FMPDirectionsButton: UIButton {
+class FMPWebsiteButton: UIButton {
     
     //MARK: - UIComponents
     
-    private let label    = FMPTitleLabel(textAlignment: .center, fontSize: 14)
-    private let carImage = UIImageView(image: SFSymbols.car)
+    private let label      = FMPTitleLabel(textAlignment: .left, fontSize: 14)
+    private let globeImage = UIImageView(image: SFSymbols.globe)
     
     //MARK: - Init
     
@@ -30,25 +30,26 @@ class FMPDirectionsButton: UIButton {
     
     private func configureButton() {
         
-        backgroundColor    = .systemBlue
+        backgroundColor    = .systemBackground
+        layer.borderWidth  = 2
+        layer.borderColor  = UIColor.systemBlue.cgColor
         layer.cornerRadius = 7
         
-        label.text      = "Directions"
-        label.textColor = .white
+        label.text      = "Website"
+        label.textColor = .systemBlue
         addSubview(label)
         label.centerY(inView: self)
         label.anchor(trailing: trailingAnchor,
                      paddingTrailing: 8)
         
-        carImage.tintColor = .white
-        addSubview(carImage)
-        carImage.centerY(inView: self)
-        carImage.anchor(leading: self.leadingAnchor,
+        globeImage.tintColor = .systemBlue
+        addSubview(globeImage)
+        globeImage.centerY(inView: self)
+        globeImage.anchor(leading: self.leadingAnchor,
                         trailing: label.leadingAnchor,
                         paddingLeading: 11,
                         paddingTrailing: 6,
-                        height: 14,
-                        width: 16)
+                        height: 18,
+                        width: 18)
     }
-    
 }

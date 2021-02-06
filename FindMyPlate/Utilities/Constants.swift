@@ -14,6 +14,8 @@ enum SFSymbols {
     static let paperPlane   = UIImage(systemName: "paperplane.fill")
     static let xmark        = UIImage(systemName: "xmark.circle.fill")
     static let car          = UIImage(systemName: "car.fill")
+    static let error        = UIImage(systemName: "wifi.exclamationmark")
+    static let globe        = UIImage(systemName: "globe")
 }
 
 
@@ -56,7 +58,10 @@ enum Body {
 }
 
 
-enum LocationErrorMessage {
+enum ErrorMessage {
     static let deniedLocationAuth = "Please enable Location"
     static let goToSettings       = "Settings > Privacy > Location Services > Enable"
+    static let invalidURL         = "The url attached to this restaurant is invalid"
 }
+
+

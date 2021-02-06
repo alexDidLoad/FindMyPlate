@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SafariServices
 
 extension UIViewController {
     
@@ -49,4 +50,11 @@ extension UIViewController {
         }
     }
     
+    
+    func presentSafariVC(with url: URL) {
+        let safariVC                       = SFSafariViewController(url: url)
+        safariVC.preferredBarTintColor     = .systemBackground
+        safariVC.preferredControlTintColor = .systemRed
+        present(safariVC, animated: true)
+    }
 }

@@ -38,7 +38,7 @@ class EnableLocationVC: UIViewController {
     
     private func handleDeniedAuth(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .denied {
-            presentFYPAlertVC(with: LocationErrorMessage.deniedLocationAuth, message: LocationErrorMessage.goToSettings, manager: manager)
+            presentFYPAlertVC(with: ErrorMessage.deniedLocationAuth, message: ErrorMessage.goToSettings, manager: manager)
         }
     }
     

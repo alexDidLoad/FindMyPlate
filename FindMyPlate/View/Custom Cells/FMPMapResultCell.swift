@@ -10,25 +10,27 @@ import MapKit
 import CoreData
 import Cosmos
 
-protocol FMPMapCellDelegate: AnyObject {
-    func getDirections(forMapItem mapItem: MKMapItem)
+protocol FMPMapResultCellDelegate: AnyObject {
+    func goToWebsite(with url: URL?)
 }
-
 
 class FMPMapResultCell: UITableViewCell {
     
     //MARK: - UIComponents
     
-    lazy var directionsButton: FMPDirectionsButton = {
+    private lazy var directionsButton: FMPDirectionsButton = {
         let button = FMPDirectionsButton()
         button.alpha = 0 
         button.addTarget(self, action: #selector(handleDirections), for: .touchUpInside)
         return button
     }()
     
-    lazy var websiteButton: FMPDirectionsButton = {
-        
-    }
+    private lazy var websiteButton: FMPWebsiteButton = {
+        let button = FMPWebsiteButton()
+        button.alpha = 0
+        button.addTarget(self, action: #selector(handleWebsite), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var favoriteButton: FMPFavoriteButton = {
         let button = FMPFavoriteButton()
@@ -36,21 +38,15 @@ class FMPMapResultCell: UITableViewCell {
         return button
     }()
     
-    private let starRatingView: CosmosView = {
-        let star = CosmosView()
-        star.settings.totalStars       = 5
-        star.settings.starMargin       = 1
-        star.settings.fillMode         = .half
-        star.settings.emptyColor       = UIColor.systemGray.withAlphaComponent(5)
-        star.settings.emptyBorderColor = UIColor.systemGray.withAlphaComponent(5)
-        star.settings.updateOnTouch    = false
-        return star
-    }()
+    private let restaurantImageView = FMPRestaurantImageView(frame: .zero)
     
-    private let openOrClosedLabel = FMPCloseOpenLabel()
-    private let reviewCountLabel  = FMPTitleLabel(textAlignment: .left, fontSize: 12, textColor: .systemGray)
-    private let priceLabel        = FMPTitleLabel(textAlignment: .center, fontSize: 14)
-    private let restaurantLabel   = FMPTitleLabel(textAlignment: .left, fontSize: 16)
+    private let starRatingView      = FMPStarView()
+    private let openOrClosedLabel   = FMPCloseOpenLabel()
+    private let reviewCountLabel    = FMPTitleLabel(textAlignment: .left, fontSize: 12, textColor: .systemGray)
+    private let priceLabel          = FMPTitleLabel(textAlignment: .center, fontSize: 14)
+    private let restaurantLabel     = FMPTitleLabel(textAlignment: .left, fontSize: 16)
+    
+    private let edgePadding: CGFloat = 16
     
     //MARK: - Properties
     
@@ -58,7 +54,7 @@ class FMPMapResultCell: UITableViewCell {
     
     private var restaurant: Restaurant!
     
-    weak var delegate: FMPMapCellDelegate?
+    weak var delegate: FMPMapResultCellDelegate?
     
     //MARK: - Init
     
@@ -76,11 +72,14 @@ class FMPMapResultCell: UITableViewCell {
     //MARK: - Helpers
     
     func set(restaurant: Restaurant) {
+        
         self.restaurant       = restaurant
         priceLabel.text       = restaurant.price ?? Body.notAvailable
         restaurantLabel.text  = restaurant.name ?? Body.notAvailable
         reviewCountLabel.text = "\(restaurant.review_count ?? 0) Reviews"
         starRatingView.rating = Double(restaurant.rating!)
+        
+        restaurantImageView.downloadImage(fromURL: restaurant.image_url!)
         
         if restaurant.is_closed == true {
             openOrClosedLabel.text            = "Closed"
@@ -93,52 +92,93 @@ class FMPMapResultCell: UITableViewCell {
         }
     }
     
-    private func configureCell() {
-        selectionStyle       = .none
-        let padding: CGFloat = 16
+    
+    func animateButtonsIn() {
+        restaurantImageView.alpha   = 0
+        directionsButton.transform  = CGAffineTransform(scaleX: 0.25, y: 0.25)
+        websiteButton.transform     = CGAffineTransform(scaleX: 0.25, y: 0.25)
         
-        contentView.addSubview(directionsButton)
-        directionsButton.anchor(bottom: bottomAnchor,
-                                trailing: trailingAnchor,
-                                paddingBottom: padding,
-                                paddingTrailing: padding,
-                                height: 42,
-                                width: 110)
-        
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+            self.directionsButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            self.directionsButton.alpha     = 1
+            self.websiteButton.transform    = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            self.websiteButton.alpha        = 1
+        } completion: { (_) in
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
+                self.directionsButton.transform = .identity
+                self.websiteButton.transform    = .identity
+            }
+        }
+    }
+    
+    
+    private func configureButtons() {
         contentView.addSubview(favoriteButton)
         favoriteButton.anchor(top: topAnchor,
                               trailing: trailingAnchor,
-                              paddingTop: padding,
-                              paddingTrailing: padding,
+                              paddingTop: edgePadding,
+                              paddingTrailing: edgePadding,
                               height: 24,
                               width: 26)
+        
+        contentView.addSubview(directionsButton)
+        directionsButton.anchor(top: favoriteButton.bottomAnchor,
+                                trailing: trailingAnchor,
+                                paddingTop: 6,
+                                paddingTrailing: edgePadding,
+                                height: 36,
+                                width: 110)
+        
+        contentView.addSubview(websiteButton)
+        websiteButton.anchor(top: directionsButton.bottomAnchor,
+                             trailing: trailingAnchor,
+                             paddingTop: 5,
+                             paddingTrailing: edgePadding,
+                             height: 36,
+                             width: 110)
+    }
+    
+    
+    private func configureCell() {
+        selectionStyle       = .none
+        
+        configureButtons()
+        
+        addSubview(restaurantImageView)
+        restaurantImageView.anchor(bottom: bottomAnchor,
+                                   trailing: trailingAnchor,
+                                   paddingBottom: edgePadding,
+                                   paddingTrailing: edgePadding,
+                                   height: 80,
+                                   width: 120)
         
         addSubview(openOrClosedLabel)
         openOrClosedLabel.anchor(top: topAnchor,
                                  leading: leadingAnchor,
-                                 paddingTop: padding,
-                                 paddingLeading: padding,
+                                 paddingTop: edgePadding,
+                                 paddingLeading: edgePadding,
                                  width: 40)
         
         addSubview(restaurantLabel)
         restaurantLabel.anchor(top: openOrClosedLabel.bottomAnchor,
                                leading: leadingAnchor,
-                               trailing: favoriteButton.trailingAnchor,
+                               trailing: restaurantImageView.leadingAnchor,
                                paddingTop: 6,
-                               paddingLeading: padding,
+                               paddingLeading: edgePadding,
+                               paddingTrailing: 6,
                                height: 38)
         
         addSubview(priceLabel)
         priceLabel.anchor(top: restaurantLabel.bottomAnchor,
                           leading: leadingAnchor,
                           paddingTop: 6,
-                          paddingLeading: padding)
+                          paddingLeading: edgePadding)
         
         addSubview(starRatingView)
         starRatingView.anchor(top: priceLabel.bottomAnchor,
                               leading: leadingAnchor,
                               paddingTop: 8,
-                              paddingLeading: padding)
+                              paddingLeading: edgePadding)
         
         addSubview(reviewCountLabel)
         reviewCountLabel.centerY(inView: starRatingView, constant: 2)
@@ -157,13 +197,19 @@ class FMPMapResultCell: UITableViewCell {
         mapItem.name        = restaurant.name
         
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
-        
-//        delegate?.getDirections(forMapItem: mapItem)
+    }
+    
+    
+    @objc private func handleWebsite() {
+        guard let url = URL(string: restaurant.url!) else { return }
+        delegate?.goToWebsite(with: url)
     }
     
     
     @objc private func handleFavorite() {
         print("DEBUG: Handle favorite here...")
+        
+        favoriteButton.tintColor = .red
     }
     
 }

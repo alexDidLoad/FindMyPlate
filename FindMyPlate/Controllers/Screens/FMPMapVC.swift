@@ -34,8 +34,8 @@ class FMPMapVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.selectedFood       = selectedFood
-        fmpTableVC = FMPMapResultsVC(selectedFood: selectedFood)
-        fmpTableVC.delegate = self
+        fmpTableVC              = FMPMapResultsVC(selectedFood: selectedFood)
+        fmpTableVC.delegate     = self
     }
     
     

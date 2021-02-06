@@ -24,13 +24,16 @@ class FMPMapResultsVC: UIViewController {
     
     enum Section { case main }
     
+    typealias DiffableDataSource = UITableViewDiffableDataSource<Section, Restaurant>
+    typealias SnapShot           = NSDiffableDataSourceSnapshot<Section, Restaurant>
+    
     weak var delegate: FMPMapResultsVCDelegate?
     
-    var selectedFood: String!
+    private var selectedFood: String!
     var restaurants = [Restaurant]()
     
     var tableView: UITableView!
-    private var dataSource: UITableViewDiffableDataSource<Section, Restaurant>!
+    private var dataSource: DiffableDataSource!
     
     //MARK: - Init
     
@@ -127,7 +130,7 @@ class FMPMapResultsVC: UIViewController {
     
     
     private func updateData(on restaurants: [Restaurant]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
+        var snapshot = SnapShot()
         snapshot.appendSections([.main])
         snapshot.appendItems(restaurants)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: false) }
@@ -135,8 +138,9 @@ class FMPMapResultsVC: UIViewController {
     
     
     private func configureDataSource() {
-        dataSource = UITableViewDiffableDataSource<Section, Restaurant>(tableView: tableView, cellProvider: { (tableView, indexPath, restaurant) -> UITableViewCell? in
+        dataSource = DiffableDataSource(tableView: tableView, cellProvider: { (tableView, indexPath, restaurant) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: FMPMapResultCell.reuseID, for: indexPath) as! FMPMapResultCell
+            cell.delegate = self
             cell.set(restaurant: restaurant)
             return cell
         })
@@ -178,6 +182,23 @@ extension FMPMapResultsVC: UITableViewDelegate {
         
         let newIndexPath = IndexPath(row: 0, section: 0)
         guard let cell = tableView.cellForRow(at: newIndexPath) as? FMPMapResultCell else { return }
-        cell.directionsButton.alpha = 1
+        
+        DispatchQueue.main.async {
+            cell.animateButtonsIn()
+        }
     }
+}
+
+//MARK: - FMPMapResultCellDelegate
+
+extension FMPMapResultsVC: FMPMapResultCellDelegate {
+    
+    func goToWebsite(with url: URL?) {
+        if let url = url {
+            presentSafariVC(with: url)
+        } else {
+            presentFYPAlertVC(with: "Invalid URL", message: ErrorMessage.invalidURL)
+        }
+    }
+    
 }
