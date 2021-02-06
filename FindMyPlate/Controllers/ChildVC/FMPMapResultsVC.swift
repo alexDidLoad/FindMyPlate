@@ -85,19 +85,19 @@ class FMPMapResultsVC: UIViewController {
     
     
     private func fetchRestaurants(with numbers: [String]) {
-      showLoadingView()
+        showLoadingView()
         numbers.forEach({ number in
             NetworkManager.shared.getRestaurants(fromPhoneNumber: number) { [weak self] result in
                 guard let self = self else { return }
                 self.dismissLoadingview()
-
+                
                 switch result {
                 case .success(let restaurants):
                     self.updateUI(with: restaurants)
                     
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        self.presentFYPAlertVC(with: "Sorry!", message: error.rawValue)
+                        self.presentFYPAlertVC(withTitle: "Sorry!", message: error.rawValue)
                     }
                     break
                 }
@@ -182,10 +182,8 @@ extension FMPMapResultsVC: UITableViewDelegate {
         
         let newIndexPath = IndexPath(row: 0, section: 0)
         guard let cell = tableView.cellForRow(at: newIndexPath) as? FMPMapResultCell else { return }
-        
-        DispatchQueue.main.async {
-            cell.animateButtonsIn()
-        }
+        cell.selectedIndex = indexPath.row
+        if cell.restaurantImageView.alpha == 1 { DispatchQueue.main.async { cell.animateButtonsIn() } } else { return }
     }
 }
 
@@ -197,7 +195,7 @@ extension FMPMapResultsVC: FMPMapResultCellDelegate {
         if let url = url {
             presentSafariVC(with: url)
         } else {
-            presentFYPAlertVC(with: "Invalid URL", message: ErrorMessage.invalidURL)
+            presentFYPAlertVC(withTitle: "Invalid URL", message: ErrorMessage.invalidURL)
         }
     }
     

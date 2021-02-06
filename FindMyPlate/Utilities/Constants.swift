@@ -62,6 +62,8 @@ enum ErrorMessage {
     static let deniedLocationAuth = "Please enable Location"
     static let goToSettings       = "Settings > Privacy > Location Services > Enable"
     static let invalidURL         = "The url attached to this restaurant is invalid"
+    static let errorWithSaving    = "We couldn't save your favorite restaurant 😭"
+    static let errorWithFetching  = "We couldn't retrieve your favorite restaurant 😭"
 }
 
 

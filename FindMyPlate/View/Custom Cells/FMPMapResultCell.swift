@@ -34,23 +34,27 @@ class FMPMapResultCell: UITableViewCell {
     
     private lazy var favoriteButton: FMPFavoriteButton = {
         let button = FMPFavoriteButton()
+        button.alpha = 0
         button.addTarget(self, action: #selector(handleFavorite), for: .touchUpInside)
         return button
     }()
     
-    private let restaurantImageView = FMPRestaurantImageView(frame: .zero)
-    
-    private let starRatingView      = FMPStarView()
-    private let openOrClosedLabel   = FMPCloseOpenLabel()
-    private let reviewCountLabel    = FMPTitleLabel(textAlignment: .left, fontSize: 12, textColor: .systemGray)
-    private let priceLabel          = FMPTitleLabel(textAlignment: .center, fontSize: 14)
-    private let restaurantLabel     = FMPTitleLabel(textAlignment: .left, fontSize: 16)
-    
+    let restaurantImageView          = FMPRestaurantImageView(frame: .zero)
+    private let starRatingView       = FMPStarView()
+    private let openOrClosedLabel    = FMPCloseOpenLabel()
+    private let reviewCountLabel     = FMPTitleLabel(textAlignment: .left, fontSize: 12, textColor: .systemGray)
+    private let priceLabel           = FMPTitleLabel(textAlignment: .center, fontSize: 14)
+    private let restaurantLabel      = FMPTitleLabel(textAlignment: .left, fontSize: 16)
     private let edgePadding: CGFloat = 16
     
     //MARK: - Properties
     
-    static let reuseID = "FMPMapResultCell"
+    static let reuseID  = "FMPMapResultCell"
+    
+    private let context    = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var isFavorite = false
+    private var favorite: Favorite?
+    var selectedIndex: Int!
     
     private var restaurant: Restaurant!
     
@@ -101,12 +105,17 @@ class FMPMapResultCell: UITableViewCell {
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
             self.directionsButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
             self.directionsButton.alpha     = 1
+            
             self.websiteButton.transform    = CGAffineTransform(scaleX: 1.05, y: 1.05)
             self.websiteButton.alpha        = 1
+            
+            self.favoriteButton.transform   = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            self.favoriteButton.alpha       = 1
         } completion: { (_) in
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
                 self.directionsButton.transform = .identity
                 self.websiteButton.transform    = .identity
+                self.favoriteButton.transform   = .identity
             }
         }
     }
@@ -207,9 +216,16 @@ class FMPMapResultCell: UITableViewCell {
     
     
     @objc private func handleFavorite() {
-        print("DEBUG: Handle favorite here...")
-        
-        favoriteButton.tintColor = .red
+        isFavorite.toggle()
+        if isFavorite {
+            CoreDataManager.shared.saveFavorite(self.restaurant)
+            favoriteButton.tintColor = .systemRed
+        } else {
+            if let favorites = CoreDataManager.shared.fetchFavorite() {
+                favorite = favorites[selectedIndex]
+                CoreDataManager.shared.deleteFavorite(favorite!)
+            }
+            favoriteButton.tintColor = UIColor.lightGray.withAlphaComponent(0.6)
+        }
     }
-    
 }
