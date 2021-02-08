@@ -12,5 +12,6 @@ enum FMPError: String, Error {
     case invalidResponse    = "Invalid response from the server. Please try again"
     case invalidData        = "The data received from the server was invalid. Please try again"
     case alreadyInFavorites = "This restaurant is already in your favorites! You must REALLY like them 🥰"
+    case unableToFavorite   = "Something went wrong and we couldn't save your favorite 😭"
 }
 

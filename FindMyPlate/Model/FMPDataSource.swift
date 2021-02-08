@@ -8,7 +8,7 @@
 import UIKit
 
 enum CuisineType: CaseIterable {
-    case american, french, italian, mexican, japanese, chinese, thai, korean
+    case american, french, italian, mexican, japanese, chinese, vietnamese, korean
 }
 
 
@@ -50,8 +50,8 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
         case .chinese:
             return Cuisine.chineseFood.count
             
-        case .thai:
-            return Cuisine.thaiFood.count
+        case .vietnamese:
+            return Cuisine.vietFood.count
             
         case .korean:
             return Cuisine.koreanFood.count
@@ -88,9 +88,9 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
             cuisineImage    = setImage(to: Cuisine.chineseFood, atIndexPath: indexPath)
             cuisineText     = Cuisine.chineseFood[indexPath.row].capitalized
             
-        case .thai:
-            cuisineImage    = setImage(to: Cuisine.thaiFood, atIndexPath: indexPath)
-            cuisineText     = Cuisine.thaiFood[indexPath.row].capitalized
+        case .vietnamese:
+            cuisineImage    = setImage(to: Cuisine.vietFood, atIndexPath: indexPath)
+            cuisineText     = Cuisine.vietFood[indexPath.row].capitalized
             
         case .korean:
             cuisineImage    = setImage(to: Cuisine.koreanFood, atIndexPath: indexPath)

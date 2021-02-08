@@ -26,6 +26,13 @@ class FMPItemImageView: UIImageView {
     
     //MARK: - Helpers
     
+    func downloadImage(fromURL url: String) {
+        NetworkManager.shared.cacheImage(from: url) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async { self.image = image }
+        }
+    }
+    
     private func configureView() {
         let dimensions: CGFloat = 160
         setDimensions(height: dimensions, width: dimensions)

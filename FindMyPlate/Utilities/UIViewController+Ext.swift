@@ -12,7 +12,7 @@ import SafariServices
 
 extension UIViewController {
     
-    func presentFYPAlertVC(withTitle title: String, message: String, manager: CLLocationManager? = nil) {
+    func presentFMPAlertVC(withTitle title: String, message: String, manager: CLLocationManager? = nil) {
         let alertVC = FYPAlertVC(title: title, message: message, manager: manager)
         alertVC.modalTransitionStyle     = .crossDissolve
         alertVC.modalPresentationStyle   = .overFullScreen

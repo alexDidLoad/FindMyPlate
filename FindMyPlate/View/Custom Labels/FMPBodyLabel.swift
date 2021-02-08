@@ -17,9 +17,13 @@ class FMPBodyLabel: UILabel {
     }
     
     
-    convenience init(textAlignment: NSTextAlignment) {
+    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat? = nil) {
         self.init(frame: .zero)
+        
         self.textAlignment = textAlignment
+        
+        guard let fontSize = fontSize else { return }
+        self.font          = UIFont.systemFont(ofSize: fontSize)
     }
     
     

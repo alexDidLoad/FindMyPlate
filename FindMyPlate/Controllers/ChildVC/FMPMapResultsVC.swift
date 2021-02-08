@@ -65,7 +65,7 @@ class FMPMapResultsVC: UIViewController {
         view.addSubview(containerView)
         
         containerView.backgroundColor = .systemBackground
-        containerView.alpha = 0
+        containerView.alpha           = 0
         
         UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }
         
@@ -97,7 +97,7 @@ class FMPMapResultsVC: UIViewController {
                     
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        self.presentFYPAlertVC(withTitle: "Sorry!", message: error.rawValue)
+                        self.presentFMPAlertVC(withTitle: "Sorry!", message: error.rawValue)
                     }
                     break
                 }
@@ -195,7 +195,7 @@ extension FMPMapResultsVC: FMPMapResultCellDelegate {
         if let url = url {
             presentSafariVC(with: url)
         } else {
-            presentFYPAlertVC(withTitle: "Invalid URL", message: ErrorMessage.invalidURL)
+            presentFMPAlertVC(withTitle: "Invalid URL", message: ErrorMessage.invalidURL)
         }
     }
     

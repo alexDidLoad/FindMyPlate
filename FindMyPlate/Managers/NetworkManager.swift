@@ -24,7 +24,7 @@ class NetworkManager {
     
     //MARK: - Helpers
     
-    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+    func cacheImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         
         let cacheKey = NSString(string: urlString)
         
@@ -88,13 +88,14 @@ class NetworkManager {
                 
                 for business in businesses {
                     var restaurant          = Restaurant()
+                    restaurant.id           = business.value(forKey: "id")              as? String
                     restaurant.name         = business.value(forKey: "name")            as? String
                     restaurant.rating       = business.value(forKey: "rating")          as? Float
-                    restaurant.review_count = business.value(forKey: "review_count")    as? Int
+                    restaurant.reviewCount  = business.value(forKey: "review_count")    as? Int
                     restaurant.price        = business.value(forKey: "price")           as? String
-                    restaurant.is_closed    = business.value(forKey: "is_closed")       as? Bool
+                    restaurant.isClosed     = business.value(forKey: "is_closed")       as? Bool
                     restaurant.url          = business.value(forKey: "url")             as? String
-                    restaurant.image_url    = business.value(forKey: "image_url")       as? String
+                    restaurant.imageUrl     = business.value(forKey: "image_url")       as? String
                     restaurant.phone        = business.value(forKey: "phone")           as? String
                     
                     let address             = (business["location"]    as? [String: Any])?["address1"]  as? String

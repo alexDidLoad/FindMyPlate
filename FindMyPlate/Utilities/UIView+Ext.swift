@@ -103,10 +103,4 @@ extension UIView {
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
-    
-    func addArrangedImageViews(views: [UIImageView]) {
-        views.forEach({addSubview($0)})
-    }
-    
-    
 }

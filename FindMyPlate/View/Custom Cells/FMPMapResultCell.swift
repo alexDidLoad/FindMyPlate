@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import Cosmos
 
 protocol FMPMapResultCellDelegate: AnyObject {
     func goToWebsite(with url: URL?)
@@ -50,7 +49,6 @@ class FMPMapResultCell: UITableViewCell {
     
     static let reuseID  = "FMPMapResultCell"
     
-    private let context    = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var isFavorite = false
     var selectedIndex: Int!
     
@@ -78,16 +76,18 @@ class FMPMapResultCell: UITableViewCell {
         self.restaurant       = restaurant
         priceLabel.text       = restaurant.price ?? Body.notAvailable
         restaurantLabel.text  = restaurant.name ?? Body.notAvailable
-        reviewCountLabel.text = "\(restaurant.review_count ?? 0) Reviews"
+        reviewCountLabel.text = "\(restaurant.reviewCount ?? 0) Reviews"
         starRatingView.rating = Double(restaurant.rating!)
         
-        restaurantImageView.downloadImage(fromURL: restaurant.image_url!)
+        restaurantImageView.downloadImage(fromURL: restaurant.imageUrl!)
         
-        if restaurant.is_closed == true {
+        guard let isClosed = restaurant.isClosed else { return }
+        
+        if isClosed {
             openOrClosedLabel.text            = "Closed"
             openOrClosedLabel.textColor       = .systemRed
             openOrClosedLabel.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
-        } else {
+        } else if !isClosed {
             openOrClosedLabel.text            = "Open"
             openOrClosedLabel.textColor       = .systemGreen
             openOrClosedLabel.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
@@ -115,6 +115,21 @@ class FMPMapResultCell: UITableViewCell {
                 self.websiteButton.transform    = .identity
                 self.favoriteButton.transform   = .identity
             }
+        }
+    }
+    
+    
+    private func addRestaurantToFavorites(_ restaurant: Restaurant) {
+        let favorite = Favorite(name: restaurant.name, rating: restaurant.rating, reviewCount: restaurant.reviewCount, address: restaurant.address, url: restaurant.url, imageUrl: restaurant.imageUrl, phone: restaurant.phone)
+      
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            guard let error = error else {
+                //TODO: present sucess
+                return
+            }
+            //TODO: Show that error
         }
     }
     
@@ -164,7 +179,7 @@ class FMPMapResultCell: UITableViewCell {
                                  leading: leadingAnchor,
                                  paddingTop: edgePadding,
                                  paddingLeading: edgePadding,
-                                 width: 40)
+                                 width: 45)
         
         addSubview(restaurantLabel)
         restaurantLabel.anchor(top: openOrClosedLabel.bottomAnchor,
@@ -214,16 +229,9 @@ class FMPMapResultCell: UITableViewCell {
     
     
     @objc private func handleFavorite() {
-        isFavorite.toggle()
-        if isFavorite {
-            CoreDataManager.shared.saveFavorite(self.restaurant)
-            favoriteButton.tintColor = .systemRed
-        } else {
-            if let favorites = CoreDataManager.shared.fetchFavorite() {
-               let favorite = favorites[selectedIndex]
-                CoreDataManager.shared.deleteFavorite(favorite)
-            }
-            favoriteButton.tintColor = UIColor.lightGray.withAlphaComponent(0.6)
-        }
+        isFavorite = true
+        addRestaurantToFavorites(restaurant)
+        favoriteButton.tintColor = .systemRed
     }
 }
+

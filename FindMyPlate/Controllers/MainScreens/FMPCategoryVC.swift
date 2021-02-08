@@ -68,8 +68,8 @@ class FMPCategoryVC: FMPViewController {
             titleLabel.text = Title.korean
         case .mexican:
             titleLabel.text = Title.mexican
-        case .thai:
-            titleLabel.text = Title.thai
+        case .vietnamese:
+            titleLabel.text = Title.vietnamese
         default:
             break
         }

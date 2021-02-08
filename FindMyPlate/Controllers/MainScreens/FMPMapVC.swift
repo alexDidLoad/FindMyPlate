@@ -50,7 +50,7 @@ class FMPMapVC: UIViewController {
         
         configureUI()
         addPanGesture(to: resultContainerView)
-        CoreDataManager.shared.delegate = self
+       
     }
     
     
@@ -279,20 +279,8 @@ extension FMPMapVC: FMPCenterOnUserButtonDelegate, FMPExitButtonDelegate {
     }
 }
 
-//MARK: - CoreDataManagerDelegate
 
-extension FMPMapVC: CoreDataManagerDelegate {
-    
-    func errorWithFetching() {
-        presentFYPAlertVC(withTitle: "Something went wrong...", message: ErrorMessage.errorWithFetching)
-    }
-    
-    
-    func errorWithSaving() {
-        presentFYPAlertVC(withTitle: "Something went wrong...", message: ErrorMessage.errorWithSaving)
-    }
-    
-}
+
 
 
 

@@ -11,28 +11,29 @@ struct Restaurant: Codable {
     
     var uuid = UUID()
     
+    var id              : String?
     var name            : String?
     var rating          : Float?
-    var review_count    : Int?
+    var reviewCount     : Int?
     var price           : String?
-    var is_closed       : Bool?
+    var isClosed        : Bool?
     var address         : String?
     var latitude        : Double?
     var longitude       : Double?
     var url             : String?
-    var image_url       : String?
+    var imageUrl        : String?
     var phone           : String?
 }
 
 extension Restaurant: Hashable {
-    
-    static func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
+
+    static func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
         return lhs.uuid == rhs.uuid
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
     }
-    
-    
+
+
 }

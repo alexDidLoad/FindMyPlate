@@ -13,18 +13,106 @@ class FMPFavoritesVC: UIViewController {
     
     //MARK: - Properties
     
+    private let tableView =  UITableView()
+    private var favorites =  [Favorite]()
+    
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getFavorites()
     }
     
     //MARK: - Helpers
     
-    private func configureUI() {
-        view.backgroundColor = .systemBackground
+    private func updateUI(with favorites: [Favorite]) {
+        if favorites.isEmpty {
+            print("No Favorites")
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
+    }
+    
+  
+    private func getFavorites() {
+        PersistenceManager.retrieveFavorites { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let favorites):
+                self.updateUI(with: favorites)
+            case .failure(let error):
+                self.presentFMPAlertVC(withTitle: "Something went wrong...", message: error.rawValue)
+            }
+        }
+    }
+    
+    
+    
+    private func configureTableView() {
+        view.addSubview(tableView)
+        
+        tableView.frame             = view.bounds
+        tableView.tableFooterView   = UIView(frame: .zero)
+        tableView.backgroundColor   = .white
+        tableView.rowHeight         = 185
+        tableView.delegate          = self
+        tableView.dataSource        = self
+        tableView.register(FMPFavoriteCell.self, forCellReuseIdentifier: FMPFavoriteCell.reuseID)
     }
     
 }
+
+//MARK: - UITableViewDelegate and Datasource
+
+extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favorites.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FMPFavoriteCell.reuseID, for: indexPath) as! FMPFavoriteCell
+        let favorite = favorites[indexPath.row]
+        cell.set(favorite: favorite)
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       //TODO: Present yelp from safari
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                
+                self.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                return
+            }
+            self.presentFMPAlertVC(withTitle: "Unable to remove", message: error.rawValue)
+        }
+    }
+}
+

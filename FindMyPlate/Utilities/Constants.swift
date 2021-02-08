@@ -25,14 +25,14 @@ enum Lottie {
 
 
 enum Cuisine: CaseIterable {
-    static let cuisines     = ["american", "french", "italian", "mexican", "japanese", "chinese", "thai", "korean"]
+    static let cuisines     = ["american", "french", "italian", "mexican", "japanese", "chinese", "vietnamese", "korean"]
     static let americanFood = ["steak", "burgers", "fried chicken", "fast food", "hot dog", "salad"]
-    static let frenchFood   = ["Pastries", "French Bistro", "Wine and Cheese"]
-    static let italianFood  = ["Pasta", "Pizza", "Gelato", ]
-    static let mexicanFood  = ["Tacos", "Burritos", "Elote", "Mole", "Tamales" ]
-    static let japaneseFood = ["Sushi", "Ramen", "Udon", "Japanese Curry", "Tempura"]
-    static let chineseFood  = ["Fried Rice", "Hot pot", "Dim sum", "Chinese Noodles"]
-    static let thaiFood     = ["Tom yum soup", "Pad Thai", "Thai Curry"]
+    static let frenchFood   = ["Pastries", "Steak tartare", "Soufflé", "Raclette", "Cheese Fondue", "Escargot"]
+    static let italianFood  = ["Pasta", "Pizza", "Gelato", "Focaccia", "Risotto", "Tiramisu"]
+    static let mexicanFood  = ["Tacos", "Burritos", "Ceviche", "Tortas", "Tamales", "Menudo" ]
+    static let japaneseFood = ["Sushi", "Ramen", "Udon", "Takoyaki", "Tempura", "Yakitori"]
+    static let chineseFood  = ["Peking Duck", "Hot pot", "Dim sum", "Egg Custard Tart", "Fried Rice", "Wonton Soup"]
+    static let vietFood     = ["Phó", "Spring Rolls"]
     static let koreanFood   = ["Korean Bbq", "Bulgogi", "Korean Stew", "Bibimbap", "Jap chae"]
 }
 
@@ -46,14 +46,14 @@ enum Title {
     static let mexican       = "Mexican Cuisine"
     static let japanese      = "Japanese Cuisine"
     static let chinese       = "Chinese Cuisine"
-    static let thai          = "Thai Cuisine"
+    static let vietnamese    = "Vietnamese Cuisine"
     static let korean        = "Korean Cuisine"
 }
 
 
 enum Body {
     static let whatAreYouFeelingToday = "What type of cuisine are you feeling today?"
-    static let whichCategory          = "Which category of food would you like?"
+    static let whichCategory          = "Which kind of food would you like?"
     static let notAvailable           = "N/A"
 }
 
