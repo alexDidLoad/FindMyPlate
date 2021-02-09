@@ -18,15 +18,14 @@ class FMPStarView: CosmosView {
         configureView()
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: - Helpers
     
     func configureView() {
-        
         settings.totalStars       = 5
         settings.starMargin       = 1
         settings.fillMode         = .half

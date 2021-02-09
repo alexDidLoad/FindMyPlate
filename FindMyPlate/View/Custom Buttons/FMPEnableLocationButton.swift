@@ -35,7 +35,6 @@ class FMPEnableLocationButton: UIButton {
         layer.shadowRadius       = 1
         layer.shouldRasterize    = true
         layer.rasterizationScale = UIScreen.main.scale
-        
     }
 }
 

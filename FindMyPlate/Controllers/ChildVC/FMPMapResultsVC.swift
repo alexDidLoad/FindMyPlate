@@ -8,7 +8,6 @@
 import UIKit
 import MapKit
 
-
 protocol FMPMapResultsVCDelegate: AnyObject {
     func addAnnotations(forRestaurants restaurants: [Restaurant])
     func didSelectAnnotation(withMapItem mapItem: MKMapItem)
@@ -63,7 +62,6 @@ class FMPMapResultsVC: UIViewController {
     private func showLoadingView() {
         containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 150)
         view.addSubview(containerView)
-        
         containerView.backgroundColor = .systemBackground
         containerView.alpha           = 0
         
@@ -72,7 +70,6 @@ class FMPMapResultsVC: UIViewController {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         containerView.addSubview(activityIndicator)
         activityIndicator.centerInView(view: containerView)
-        
         activityIndicator.startAnimating()
     }
     

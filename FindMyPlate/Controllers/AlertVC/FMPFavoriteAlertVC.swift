@@ -140,13 +140,9 @@ class FMPFavoriteAlertVC: UIViewController {
     @objc private func handleConfirm() {
         let favorite = Favorite(name: restaurant.name, rating: restaurant.rating, reviewCount: restaurant.reviewCount, address: restaurant.address, url: restaurant.url, imageUrl: restaurant.imageUrl, phone: restaurant.phone)
         PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-            guard let self = self else { return }
+            guard let self  = self else { return }
+            guard let error = error else { self.button.tintColor = .systemRed; return }
             
-            guard let error = error else {
-                self.button.tintColor = .systemRed
-                return
-            }
-            //TODO: Show that error
             self.presentFMPAlertVC(withTitle: "Something went wrong...", message: error.rawValue)
             self.button.tintColor = UIColor.systemGray.withAlphaComponent(0.2)
         }

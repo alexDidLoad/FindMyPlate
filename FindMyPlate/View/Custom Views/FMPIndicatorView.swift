@@ -29,5 +29,4 @@ class FMPIndicatorView: UIView {
         alpha               = 0.8
         layer.cornerRadius  = 5
     }
-    
 }

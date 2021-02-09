@@ -13,12 +13,13 @@ class EnableLocationVC: UIViewController {
     
     //MARK: - UIComponents
     
-    private let animationView = AnimationView(name: Icons.locationIcon)
     private let enableLocationButton: FMPEnableLocationButton = {
         let button = FMPEnableLocationButton(frame: .zero)
         button.addTarget(self, action: #selector(enableButtonPressed), for: .touchUpInside)
         return button
     }()
+    
+    private let animationView = AnimationView(name: Icons.locationIcon)
     
     //MARK: - Lifecycle
     
@@ -27,6 +28,7 @@ class EnableLocationVC: UIViewController {
         
         configureUI()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

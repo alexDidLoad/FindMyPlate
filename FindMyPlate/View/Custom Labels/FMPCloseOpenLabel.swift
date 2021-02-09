@@ -25,7 +25,6 @@ class FMPCloseOpenLabel: UILabel {
     //MARK: - Helpers
     
     private func configureLabel() {
-        
         textAlignment       = .center
         font                = UIFont.systemFont(ofSize: 12, weight: .regular)
         layer.cornerRadius  = 6

@@ -12,9 +12,6 @@ class FMPAlertVC: UIViewController {
     
     //MARK: - UIComponents
     
-    private let containerView = FMPAlertContainerView()
-    private let titleLabel = FMPTitleLabel(textAlignment: .center, fontSize: 20)
-    private let messageLabel = FMPBodyLabel(textAlignment: .center)
     private let actionButton: UIButton = {
         let button                  = UIButton(type: .system)
         button.backgroundColor      = .systemRed
@@ -24,6 +21,10 @@ class FMPAlertVC: UIViewController {
         button.setTitleColor(.white, for: .normal)
         return button
     }()
+    
+    private let containerView = FMPAlertContainerView()
+    private let titleLabel = FMPTitleLabel(textAlignment: .center, fontSize: 20)
+    private let messageLabel = FMPBodyLabel(textAlignment: .center)
     
     //MARK: - Properties
     
@@ -55,7 +56,6 @@ class FMPAlertVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -63,7 +63,6 @@ class FMPAlertVC: UIViewController {
         
         configureUI()
     }
-    
     
     //MARK: - Helpers
     
@@ -95,6 +94,7 @@ class FMPAlertVC: UIViewController {
                           height: 28
         )
     }
+    
     
     private func configureMessageLabel() {
         messageLabel.text          = message ?? "Unable to complete request"
@@ -128,7 +128,6 @@ class FMPAlertVC: UIViewController {
         configureTitleLabel()
         configureActionButton()
         configureMessageLabel()
-        
     }
     
     //MARK: - Selectors
@@ -138,6 +137,7 @@ class FMPAlertVC: UIViewController {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         dismiss(animated: true)
     }
+    
     
     @objc private func dismissAlert() {
         dismiss(animated: true)

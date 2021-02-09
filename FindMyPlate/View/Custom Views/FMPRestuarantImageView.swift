@@ -28,7 +28,6 @@ class FMPRestaurantImageView: UIImageView {
     
     //MARK: - Helpers
     
-    
     func downloadImage(fromURL url: String) {
         NetworkManager.shared.cacheImage(from: url) { [weak self] image in
             guard let self = self else { return }
@@ -38,7 +37,6 @@ class FMPRestaurantImageView: UIImageView {
     
     
     private func configureImage() {
-        
         image               = placeholderImage
         contentMode         = .scaleAspectFill
         layer.cornerRadius  = 6

@@ -9,7 +9,6 @@ import UIKit
 
 class FMPFavoriteCellContainerView: UIView {
     
-    
     //MARK: - Init
     
     override init(frame: CGRect) {

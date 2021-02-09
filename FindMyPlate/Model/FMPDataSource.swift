@@ -112,5 +112,4 @@ class FMPDataSource: NSObject, UICollectionViewDataSource {
         return image
     }
     
-    
 }

@@ -9,13 +9,10 @@ import UIKit
 
 class FMPFavoritesVC: UIViewController {
     
-    //MARK: - UIComponents
-    
     //MARK: - Properties
     
     private let tableView =  UITableView()
     private var favorites =  [Favorite]()
-    
     
     //MARK: - Lifecycle
     
@@ -25,6 +22,7 @@ class FMPFavoritesVC: UIViewController {
         configureTableView()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         getFavorites()
     }
@@ -33,13 +31,10 @@ class FMPFavoritesVC: UIViewController {
     
     private func updateUI(with favorites: [Favorite]) {
         if favorites.isEmpty {
-            print("No Favorites")
+            presentFMPAlertVC(withTitle: "No Favorites 😭", message: "You currently don't have any favorites")
         } else {
             self.favorites = favorites
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.view.bringSubviewToFront(self.tableView)
-            }
+            DispatchQueue.main.async { self.tableView.reloadData() }
         }
     }
     
@@ -61,7 +56,6 @@ class FMPFavoritesVC: UIViewController {
     
     private func configureTableView() {
         view.addSubview(tableView)
-        
         tableView.frame             = view.bounds
         tableView.tableFooterView   = UIView(frame: .zero)
         tableView.backgroundColor   = .white
@@ -83,7 +77,7 @@ extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FMPFavoriteCell.reuseID, for: indexPath) as! FMPFavoriteCell
+        let cell     = tableView.dequeueReusableCell(withIdentifier: FMPFavoriteCell.reuseID, for: indexPath) as! FMPFavoriteCell
         let favorite = favorites[indexPath.row]
         cell.set(favorite: favorite)
         return cell
@@ -96,10 +90,6 @@ extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
         presentSafariVC(with: url!)
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
@@ -107,7 +97,6 @@ extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
         PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             guard let error = error else {
-                
                 self.favorites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left)
                 return

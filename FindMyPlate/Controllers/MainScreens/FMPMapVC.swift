@@ -15,7 +15,6 @@ class FMPMapVC: UIViewController {
     
     private let centerUserButton    = FMPCenterOnUserButton()
     private let exitButton          = FMPExitButton()
-    
     private let resultContainerView = FMPMapResultsContainerView()
     
     //MARK: - Properties
@@ -50,7 +49,6 @@ class FMPMapVC: UIViewController {
         
         configureUI()
         addPanGesture(to: resultContainerView)
-       
     }
     
     
@@ -69,30 +67,21 @@ class FMPMapVC: UIViewController {
     
     
     private func animate(containerView view: UIView) {
-        
         let collapsed: CGFloat          = DeviceTypes.isiPhoneSE ? 950 : 1178
         let partiallyExpanded: CGFloat  = DeviceTypes.isiPhoneSE ? 800 : 960
         let fullyExpanded: CGFloat      = DeviceTypes.isiPhoneSE ? 510 : 570
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
-            
             if view.center.y > fullyExpanded + 175 {
-                
                 if view.center.y > partiallyExpanded + 125 {
-                
                     view.center.y = collapsed
-                    
                     self.fmpTableVC.tableView.isScrollEnabled = false
                 } else {
-                    
                     view.center.y = partiallyExpanded
-                    
                     self.fmpTableVC.tableView.isScrollEnabled = false
                 }
             } else {
-                
                 view.center.y = fullyExpanded
-                
                 self.fmpTableVC.tableView.isScrollEnabled = true
             }
         }
@@ -175,8 +164,7 @@ class FMPMapVC: UIViewController {
         
         switch sender.state {
         case .began, .changed:
-            containerView.center = CGPoint(x: containerView.center.x,
-                                           y: containerView.center.y + translation.y)
+            containerView.center = CGPoint(x: containerView.center.x, y: containerView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: view)
             
             if containerView.center.y < maxYConstant {
@@ -186,7 +174,6 @@ class FMPMapVC: UIViewController {
             }
         case .ended:
             animate(containerView: containerView)
-            
         case .possible, .cancelled, .failed:
             break
         @unknown default:
@@ -197,37 +184,12 @@ class FMPMapVC: UIViewController {
     //MARK: - MapKit Helpers
     
     private func zoomToFit(selectedAnnotation: MKAnnotation?) {
-        if mapView.annotations.count == 0 {
-            return
-        }
-        var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 180)
-        var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -180)
-        
-        if let selectedAnnotation = selectedAnnotation {
-            for annotation in mapView.annotations {
-                if let userAnnotation = annotation as? MKUserLocation {
-                    topLeftCoordinate.longitude     = fmin(topLeftCoordinate.longitude, userAnnotation.coordinate.longitude)
-                    topLeftCoordinate.latitude      = fmax(topLeftCoordinate.latitude, userAnnotation.coordinate.latitude)
-                    bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, userAnnotation.coordinate.longitude)
-                    bottomRightCoordinate.latitude  = fmin(bottomRightCoordinate.latitude, userAnnotation.coordinate.latitude)
-                }
-                if annotation.title == selectedAnnotation.title {
-                    topLeftCoordinate.longitude     = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
-                    topLeftCoordinate.latitude      = fmax(topLeftCoordinate.latitude, annotation.coordinate.latitude)
-                    bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
-                    bottomRightCoordinate.latitude  = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
-                }
-            }
-            var region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.65, topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.65), span: MKCoordinateSpan(latitudeDelta: fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 3.0, longitudeDelta: fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 3.0))
-            
-            region = mapView.regionThatFits(region)
-            mapView.setRegion(region, animated: true)
-        }
+        if mapView.annotations.count == 0 { return }
+        zoomToFocusOn(selectedAnnotation: selectedAnnotation, mapView: mapView)
     }
     
     
     private func centerOnUserLocation() {
-        
         guard let coordinate = LocationManager.shared.location?.coordinate else { return }
         let region           = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
         
@@ -241,7 +203,6 @@ extension FMPMapVC: MKMapViewDelegate, FMPMapResultsVCDelegate {
     
     func didSelectAnnotation(withMapItem mapItem: MKMapItem) {
         mapView.annotations.forEach({ annotation in
-           
             if annotation.title != mapItem.name {
                 self.mapView.removeAnnotation(annotation)
             } else {

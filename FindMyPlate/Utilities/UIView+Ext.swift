@@ -54,8 +54,8 @@ extension UIView {
     
     
     func fillViewWithPadding(view: UIView, paddingTop top: CGFloat, paddingLeading lead: CGFloat, paddingBottom bottom: CGFloat, paddingTrailing trailing: CGFloat) {
-          self.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, paddingTop: top, paddingLeading: lead, paddingBottom: bottom, paddingTrailing: trailing)
-      }
+        self.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, paddingTop: top, paddingLeading: lead, paddingBottom: bottom, paddingTrailing: trailing)
+    }
     
     
     func centerX(inView view: UIView, leadingAnchor: NSLayoutXAxisAnchor? = nil, paddingLeading: CGFloat = 0, constant: CGFloat = 0) {

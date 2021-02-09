@@ -81,5 +81,6 @@ extension FMPHomeVC: CLLocationManagerDelegate {
             break
         }
     }
+    
 }
 

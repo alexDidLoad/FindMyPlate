@@ -22,8 +22,6 @@ class FMPItemImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     //MARK: - Helpers
     
     func downloadImage(fromURL url: String) {
