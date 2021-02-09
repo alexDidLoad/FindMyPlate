@@ -18,6 +18,9 @@ class FMPFavoriteCell: UITableViewCell {
     private let addressLabel        = FMPBodyLabel(textAlignment: .left, fontSize: 14)
     private let phoneNumber         = FMPBodyLabel(textAlignment: .left, fontSize: 12)
     
+    private let yelpIcon            = UIImageView(image: Icons.yelpIcon)
+    private let discloserIndicator  = UIImageView(image: SFSymbols.indicator)
+    
     //MARK: - Properties
     
     static let reuseID = "FMPFavoriteCell"
@@ -86,5 +89,18 @@ class FMPFavoriteCell: UITableViewCell {
         reviewCountLabel.centerY(inView: starView)
         reviewCountLabel.anchor(leading: starView.trailingAnchor,
                                 paddingLeading: 4)
+        
+        addSubview(discloserIndicator)
+        discloserIndicator.tintColor = .systemRed
+        discloserIndicator.anchor(bottom: bottomAnchor,
+                                  trailing: trailingAnchor,
+                                  paddingBottom: padding / 4,
+                                  paddingTrailing: padding / 4)
+        
+        addSubview(yelpIcon)
+        yelpIcon.setDimensions(height: 20, width: 20)
+        yelpIcon.centerY(inView: discloserIndicator, constant: -2)
+        yelpIcon.anchor(trailing: discloserIndicator.leadingAnchor,
+                        paddingTrailing: 2)
     }
 }

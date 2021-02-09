@@ -62,24 +62,37 @@ class FMPMapVC: UIViewController {
     
     //MARK: - Helpers
     
+    private func addPanGesture(to view: UIView) {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(FMPMapVC.handlePan(sender:)))
+        view.addGestureRecognizer(pan)
+    }
+    
     
     private func animate(containerView view: UIView) {
         
-        let noExpansionY: CGFloat       = 1178.0
-        let partialExpansionY: CGFloat  = 960.0
-        let fullExpansionY: CGFloat     = 570.0
+        let collapsed: CGFloat          = DeviceTypes.isiPhoneSE ? 950 : 1178
+        let partiallyExpanded: CGFloat  = DeviceTypes.isiPhoneSE ? 800 : 960
+        let fullyExpanded: CGFloat      = DeviceTypes.isiPhoneSE ? 510 : 570
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
-            if view.center.y > fullExpansionY + 175 {
-                if view.center.y > partialExpansionY + 125 {
-                    view.center.y = noExpansionY
+            
+            if view.center.y > fullyExpanded + 175 {
+                
+                if view.center.y > partiallyExpanded + 125 {
+                
+                    view.center.y = collapsed
+                    
                     self.fmpTableVC.tableView.isScrollEnabled = false
                 } else {
-                    view.center.y = partialExpansionY
+                    
+                    view.center.y = partiallyExpanded
+                    
                     self.fmpTableVC.tableView.isScrollEnabled = false
                 }
             } else {
-                view.center.y = fullExpansionY
+                
+                view.center.y = fullyExpanded
+                
                 self.fmpTableVC.tableView.isScrollEnabled = true
             }
         }
@@ -99,21 +112,15 @@ class FMPMapVC: UIViewController {
     }
     
     
-    private func addPanGesture(to view: UIView) {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(FMPMapVC.handlePan(sender:)))
-        view.addGestureRecognizer(pan)
-    }
-    
-    
     private func configureResultView() {
-        
+        let bottomPaddingConstant: CGFloat = DeviceTypes.isiPhoneSE ? 200 : 306
         resultContainerView.backgroundColor = .white
         
         view.addSubview(resultContainerView)
         resultContainerView.anchor(leading: view.leadingAnchor,
                                    bottom: view.bottomAnchor,
                                    trailing: view.trailingAnchor,
-                                   paddingBottom: -(view.frame.height - 306),
+                                   paddingBottom: -(view.frame.height - bottomPaddingConstant),
                                    height: view.frame.height)
         
         add(childVC: fmpTableVC, to: self.resultContainerView)
@@ -163,18 +170,20 @@ class FMPMapVC: UIViewController {
         let containerView = sender.view!
         let translation   = sender.translation(in: view)
         
+        let maxYConstant: CGFloat = DeviceTypes.isiPhoneSE ? 510 : 570
+        let minYConstant: CGFloat = DeviceTypes.isiPhoneSE ? 950 : 1178
+        
         switch sender.state {
         case .began, .changed:
             containerView.center = CGPoint(x: containerView.center.x,
                                            y: containerView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: view)
             
-            if containerView.center.y < 570.0 {
-                containerView.center.y = 570.0
-            } else if containerView.center.y > 1178.0 {
-                containerView.center.y = 1178.0
+            if containerView.center.y < maxYConstant {
+                containerView.center.y = maxYConstant
+            } else if containerView.center.y > minYConstant {
+                containerView.center.y = minYConstant
             }
-            
         case .ended:
             animate(containerView: containerView)
             
@@ -241,7 +250,7 @@ extension FMPMapVC: MKMapViewDelegate, FMPMapResultsVCDelegate {
             }
         })
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
-            self.resultContainerView.center.y = 960.0
+            self.resultContainerView.center.y = DeviceTypes.isiPhoneSE ? 800 : 960
         }
     }
     

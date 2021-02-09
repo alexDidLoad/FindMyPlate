@@ -149,6 +149,7 @@ class FMPMapResultsVC: UIViewController {
     
     private func configureTableView() {
         tableView                                = UITableView()
+        tableView.tableFooterView                = UIView(frame: .zero)
         tableView.rowHeight                      = 142
         tableView.delegate                       = self
         tableView.isScrollEnabled                = false
@@ -190,6 +191,11 @@ extension FMPMapResultsVC: UITableViewDelegate {
 //MARK: - FMPMapResultCellDelegate
 
 extension FMPMapResultsVC: FMPMapResultCellDelegate {
+    
+    func didFavorite(restaurant: Restaurant, button: FMPFavoriteButton) {
+        presentFMPFavoriteVC(withTitle: restaurant.name!, message: "Do you want to favorite this restaurant?", restaurant: restaurant, button: button)
+    }
+    
     
     func goToWebsite(with url: URL?) {
         if let url = url {

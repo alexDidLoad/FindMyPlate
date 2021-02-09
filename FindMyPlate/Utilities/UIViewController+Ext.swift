@@ -13,13 +13,20 @@ import SafariServices
 extension UIViewController {
     
     func presentFMPAlertVC(withTitle title: String, message: String, manager: CLLocationManager? = nil) {
-        let alertVC = FYPAlertVC(title: title, message: message, manager: manager)
+        let alertVC = FMPAlertVC(title: title, message: message, manager: manager)
         alertVC.modalTransitionStyle     = .crossDissolve
         alertVC.modalPresentationStyle   = .overFullScreen
         
-        DispatchQueue.main.async {
-            self.present(alertVC, animated: true)
-        }
+        DispatchQueue.main.async { self.present(alertVC, animated: true) }
+    }
+    
+    
+    func presentFMPFavoriteVC(withTitle title: String, message: String, restaurant: Restaurant, button: FMPFavoriteButton) {
+        let alertVC = FMPFavoriteAlertVC(title: title, message: message, forRestaurant: restaurant, button: button)
+        alertVC.modalTransitionStyle    = .crossDissolve
+        alertVC.modalPresentationStyle  = .overFullScreen
+        
+        DispatchQueue.main.async { self.present(alertVC, animated: true) }
     }
     
     

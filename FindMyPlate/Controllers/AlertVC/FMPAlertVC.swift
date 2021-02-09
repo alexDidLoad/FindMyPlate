@@ -1,5 +1,5 @@
 //
-//  FYPAlertVC.swift
+//  FMPAlertVC.swift
 //  FindMyPlate
 //
 //  Created by Alexander Ha on 1/31/21.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class FYPAlertVC: UIViewController {
+class FMPAlertVC: UIViewController {
     
     //MARK: - UIComponents
     

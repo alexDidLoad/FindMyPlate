@@ -13,7 +13,7 @@ class EnableLocationVC: UIViewController {
     
     //MARK: - UIComponents
     
-    private let animationView = AnimationView(name: Lottie.locationIcon)
+    private let animationView = AnimationView(name: Icons.locationIcon)
     private let enableLocationButton: FMPEnableLocationButton = {
         let button = FMPEnableLocationButton(frame: .zero)
         button.addTarget(self, action: #selector(enableButtonPressed), for: .touchUpInside)

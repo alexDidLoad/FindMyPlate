@@ -91,8 +91,9 @@ extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       //TODO: Present yelp from safari
-        
+        guard let urlString = favorites[indexPath.row].url else { return }
+        let url = URL(string: urlString)
+        presentSafariVC(with: url!)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -114,5 +115,6 @@ extension FMPFavoritesVC: UITableViewDelegate, UITableViewDataSource {
             self.presentFMPAlertVC(withTitle: "Unable to remove", message: error.rawValue)
         }
     }
+    
 }
 

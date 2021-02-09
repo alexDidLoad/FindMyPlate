@@ -56,6 +56,8 @@ class FMPViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         
+        let containerHeight: CGFloat = DeviceTypes.isiPhoneSE ? 120 : 145
+        
         view.addSubview(containerView)
         containerView.backgroundColor = .systemBackground
 
@@ -63,7 +65,7 @@ class FMPViewController: UIViewController {
                              leading: view.leadingAnchor,
                              trailing: view.trailingAnchor,
                              paddingTop: 40,
-                             height: 145)
+                             height: containerHeight)
         
         containerView.addSubview(titleLabel)
         titleLabel.anchor(leading: containerView.leadingAnchor,

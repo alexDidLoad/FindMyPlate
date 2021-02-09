@@ -10,6 +10,7 @@ import MapKit
 
 protocol FMPMapResultCellDelegate: AnyObject {
     func goToWebsite(with url: URL?)
+    func didFavorite(restaurant: Restaurant, button: FMPFavoriteButton)
 }
 
 class FMPMapResultCell: UITableViewCell {
@@ -119,21 +120,6 @@ class FMPMapResultCell: UITableViewCell {
     }
     
     
-    private func addRestaurantToFavorites(_ restaurant: Restaurant) {
-        let favorite = Favorite(name: restaurant.name, rating: restaurant.rating, reviewCount: restaurant.reviewCount, address: restaurant.address, url: restaurant.url, imageUrl: restaurant.imageUrl, phone: restaurant.phone)
-      
-        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-            guard let self = self else { return }
-            
-            guard let error = error else {
-                //TODO: present sucess
-                return
-            }
-            //TODO: Show that error
-        }
-    }
-    
-    
     private func configureButtons() {
         contentView.addSubview(favoriteButton)
         favoriteButton.anchor(top: topAnchor,
@@ -229,9 +215,7 @@ class FMPMapResultCell: UITableViewCell {
     
     
     @objc private func handleFavorite() {
-        isFavorite = true
-        addRestaurantToFavorites(restaurant)
-        favoriteButton.tintColor = .systemRed
+        delegate?.didFavorite(restaurant: restaurant, button: favoriteButton)
     }
 }
 
