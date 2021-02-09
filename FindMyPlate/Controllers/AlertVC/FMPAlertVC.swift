@@ -19,6 +19,7 @@ class FMPAlertVC: UIViewController {
         button.titleLabel?.font     = UIFont.systemFont(ofSize: 16, weight: .regular)
         button.setTitle("Ok", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         return button
     }()
     
@@ -69,9 +70,7 @@ class FMPAlertVC: UIViewController {
     private func checkAuthStatus(manager: CLLocationManager) {
         if manager.authorizationStatus == .denied {
             actionButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
-        } else {
-            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
-        }
+        } 
     }
     
     

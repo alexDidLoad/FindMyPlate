@@ -28,14 +28,14 @@ enum Icons {
 
 enum Cuisine: CaseIterable {
     static let cuisines     = ["american", "french", "italian", "mexican", "japanese", "chinese", "vietnamese", "korean"]
-    static let americanFood = ["steak", "burgers", "fried chicken", "fast food", "hot dog", "salad"]
+    static let americanFood = ["Steak", "Burgers", "Fried Chicken", "Fast Food", "Hot dog", "Salad"]
     static let frenchFood   = ["Pastries", "Steak tartare", "Soufflé", "Raclette", "Cheese Fondue", "Escargot"]
     static let italianFood  = ["Pasta", "Pizza", "Gelato", "Focaccia", "Risotto", "Tiramisu"]
     static let mexicanFood  = ["Tacos", "Burritos", "Ceviche", "Tortas", "Tamales", "Menudo" ]
     static let japaneseFood = ["Sushi", "Ramen", "Udon", "Takoyaki", "Tempura", "Yakitori"]
     static let chineseFood  = ["Peking Duck", "Hot pot", "Dim sum", "Egg Custard Tart", "Fried Rice", "Wonton Soup"]
-    static let vietFood     = ["Phó", "Spring Rolls"]
-    static let koreanFood   = ["Korean Bbq", "Bulgogi", "Korean Stew", "Bibimbap", "Jap chae"]
+    static let vietFood     = ["Pho", "Com Tam", "Vietnamese Coffee", "Banh Mi"]
+    static let koreanFood   = ["Korean Bbq", "Jjigae", "Bibimbap"]
 }
 
 
