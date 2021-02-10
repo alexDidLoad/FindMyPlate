@@ -29,7 +29,7 @@ class FMPMapResultsContainerView: UIView {
     //MARK: - Helpers
     
     private func configureView() {
-        backgroundColor     = .systemBackground
+        backgroundColor     = UIColor.white.withAlphaComponent(0.8)
         layer.cornerRadius  = 14
         layer.shadowRadius  = 10
         layer.shadowColor   = UIColor.black.cgColor

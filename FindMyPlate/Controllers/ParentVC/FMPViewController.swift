@@ -43,7 +43,7 @@ class FMPViewController: UIViewController {
     
     private func configureCollectionView() {
         collectionView                      = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createTwoColumnFlowLayout(in: view))
-        collectionView.backgroundColor      = .systemBackground
+        collectionView.backgroundColor      = .white
         view.addSubview(collectionView)
         collectionView.anchor(top: containerView.bottomAnchor,
                               leading: view.leadingAnchor,
@@ -54,12 +54,12 @@ class FMPViewController: UIViewController {
     
     
     private func configureUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         let containerHeight: CGFloat = DeviceTypes.isiPhoneSE ? 120 : 145
         
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
+        containerView.backgroundColor = .white
 
         containerView.anchor(top: view.topAnchor,
                              leading: view.leadingAnchor,

@@ -56,7 +56,7 @@ enum Title {
 enum Body {
     static let whatAreYouFeelingToday = "What type of cuisine are you feeling today?"
     static let whichCategory          = "Which kind of food would you like?"
-    static let notAvailable           = "N/A"
+    static let notAvailable           = "Not Available"
 }
 
 

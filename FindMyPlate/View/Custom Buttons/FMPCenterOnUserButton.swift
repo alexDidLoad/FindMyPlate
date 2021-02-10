@@ -36,7 +36,7 @@ class FMPCenterOnUserButton: UIButton {
         imageView?.setDimensions(height: 30, width: 35)
         setImage(SFSymbols.paperPlane, for: .normal)
         
-        backgroundColor     = UIColor.white
+        backgroundColor     = UIColor.white.withAlphaComponent(0.8)
         tintColor           = .systemRed
         layer.borderWidth   = 2
         layer.borderColor   = UIColor.black.withAlphaComponent(0.2).cgColor

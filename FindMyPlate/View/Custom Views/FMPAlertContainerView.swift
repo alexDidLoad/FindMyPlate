@@ -25,7 +25,7 @@ class FMPAlertContainerView: UIView {
     //MARK: - Helpers
     
     private func configureView() {
-        backgroundColor         = .white
+        backgroundColor         = UIColor.white.withAlphaComponent(0.8)
         layer.cornerRadius      = 16
         layer.borderWidth       = 2
         layer.borderColor       = UIColor.black.cgColor

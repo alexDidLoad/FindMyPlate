@@ -62,12 +62,13 @@ class FMPMapResultsVC: UIViewController {
     private func showLoadingView() {
         containerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 150)
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
+        containerView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         containerView.alpha           = 0
         
         UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }
         
-        let activityIndicator = UIActivityIndicatorView(style: .large)
+        let activityIndicator   = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .darkGray
         containerView.addSubview(activityIndicator)
         activityIndicator.centerInView(view: containerView)
         activityIndicator.startAnimating()
@@ -146,6 +147,7 @@ class FMPMapResultsVC: UIViewController {
     
     private func configureTableView() {
         tableView                                = UITableView()
+        tableView.backgroundColor                = UIColor.white.withAlphaComponent(0.8)
         tableView.tableFooterView                = UIView(frame: .zero)
         tableView.rowHeight                      = 142
         tableView.delegate                       = self

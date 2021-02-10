@@ -39,8 +39,8 @@ class FMPTabBar: UITabBarController {
     
     private func configureUI() {
         
-        UITabBar.appearance().tintColor = .systemRed
-        viewControllers                 = [createHomeNC(), createFavoritesNC()]
+        UITabBar.appearance().tintColor    = .systemRed
+        viewControllers                    = [createHomeNC(), createFavoritesNC()]
     }
     
 }

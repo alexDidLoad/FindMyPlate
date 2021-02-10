@@ -30,7 +30,7 @@ class FMPWebsiteButton: UIButton {
     
     private func configureButton() {
         
-        backgroundColor    = .systemBackground
+        backgroundColor    = .white
         layer.borderWidth  = 2
         layer.borderColor  = UIColor.systemBlue.cgColor
         layer.cornerRadius = 7

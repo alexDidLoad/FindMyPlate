@@ -24,13 +24,13 @@ class FMPFavoriteAlertVC: UIViewController {
     
     private let cancelButton: UIButton = {
         let button                  = UIButton(type: .system)
-        button.backgroundColor      = .systemBackground
+        button.backgroundColor      = .white
         button.layer.borderWidth    = 2
         button.layer.borderColor    = UIColor.systemRed.cgColor
         button.layer.cornerRadius   = 6
         button.titleLabel?.font     = UIFont.systemFont(ofSize: 16, weight: .regular)
         button.setTitle("Cancel", for: .normal)
-        button.setTitleColor(.label, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         return button
     }()

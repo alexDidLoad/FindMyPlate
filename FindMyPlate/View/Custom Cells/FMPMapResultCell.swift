@@ -101,22 +101,7 @@ class FMPMapResultCell: UITableViewCell {
         directionsButton.transform  = CGAffineTransform(scaleX: 0.25, y: 0.25)
         websiteButton.transform     = CGAffineTransform(scaleX: 0.25, y: 0.25)
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
-            self.directionsButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            self.directionsButton.alpha     = 1
-            
-            self.websiteButton.transform    = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            self.websiteButton.alpha        = 1
-            
-            self.favoriteButton.transform   = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            self.favoriteButton.alpha       = 1
-        } completion: { (_) in
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: .zero, options: .curveEaseInOut) {
-                self.directionsButton.transform = .identity
-                self.websiteButton.transform    = .identity
-                self.favoriteButton.transform   = .identity
-            }
-        }
+        animateButtons(buttons: [favoriteButton, directionsButton, websiteButton])
     }
     
     
@@ -148,7 +133,8 @@ class FMPMapResultCell: UITableViewCell {
     
     
     private func configureCell() {
-        selectionStyle       = .none
+        selectionStyle  = .none
+        backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
         configureButtons()
         

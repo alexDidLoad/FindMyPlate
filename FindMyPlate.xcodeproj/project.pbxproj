@@ -53,6 +53,7 @@
 		110A025325D113E6000C66FC /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A025225D113E6000C66FC /* PersistenceManager.swift */; };
 		110A025625D11A42000C66FC /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A025525D11A42000C66FC /* Favorite.swift */; };
 		110A025925D1E4F5000C66FC /* FMPFavoriteAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A025825D1E4F5000C66FC /* FMPFavoriteAlertVC.swift */; };
+		110A026025D36F28000C66FC /* UITableViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A025F25D36F28000C66FC /* UITableViewCell+Ext.swift */; };
 		FAA87FEBC08A4603E60EAD4C /* Pods_FindMyPlate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		110A025225D113E6000C66FC /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		110A025525D11A42000C66FC /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		110A025825D1E4F5000C66FC /* FMPFavoriteAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPFavoriteAlertVC.swift; sourceTree = "<group>"; };
+		110A025F25D36F28000C66FC /* UITableViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Ext.swift"; sourceTree = "<group>"; };
 		2BA3EC96104A45C6497D6704 /* Pods-FindMyPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		2DE97B78B263EEDD7B7A1CC3 /* Pods-FindMyPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlate.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlate/Pods-FindMyPlate.release.xcconfig"; sourceTree = "<group>"; };
 		CED94F2CE6397B1DDB442D84 /* Pods_FindMyPlate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 				110A017525C689D0000C66FC /* UIView+Ext.swift */,
 				110A019625C75467000C66FC /* UIViewController+Ext.swift */,
 				110A024C25D06F1E000C66FC /* UIStackView+Ext.swift */,
+				110A025F25D36F28000C66FC /* UITableViewCell+Ext.swift */,
 				110A01A125C76D47000C66FC /* UIHelper.swift */,
 				110A021325CB8CA3000C66FC /* FMPError.swift */,
 			);
@@ -462,6 +465,7 @@
 				110A025925D1E4F5000C66FC /* FMPFavoriteAlertVC.swift in Sources */,
 				110A014825C517DA000C66FC /* AppDelegate.swift in Sources */,
 				110A019A25C76569000C66FC /* LocationManager.swift in Sources */,
+				110A026025D36F28000C66FC /* UITableViewCell+Ext.swift in Sources */,
 				110A024A25CFD170000C66FC /* FMPFavoriteCellContainerView.swift in Sources */,
 				110A018F25C6A196000C66FC /* FMPTitleLabel.swift in Sources */,
 				110A018125C694F3000C66FC /* FMPEnableLocationButton.swift in Sources */,
@@ -564,7 +568,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -619,7 +623,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

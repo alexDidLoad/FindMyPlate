@@ -29,7 +29,7 @@ class FMPFavoriteCellContainerView: UIView {
         layer.cornerRadius = 12
         layer.borderWidth  = 2
         layer.borderColor  = UIColor.black.withAlphaComponent(0.2).cgColor
-        backgroundColor    = .white
+        backgroundColor    = UIColor.white.withAlphaComponent(0.8)
     }
     
 }

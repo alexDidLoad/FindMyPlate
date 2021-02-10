@@ -17,7 +17,7 @@ class FMPTitleLabel: UILabel {
     }
     
     
-    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat, textColor: UIColor? = .label) {
+    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat, textColor: UIColor? = .black) {
         self.init(frame: .zero)
         self.textAlignment  = textAlignment
         self.font           = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
@@ -32,7 +32,7 @@ class FMPTitleLabel: UILabel {
     //MARK: - Helpers
     
     private func configureUI() {
-        textColor                   = .label
+        textColor                   = .black
         adjustsFontSizeToFitWidth   = true
         minimumScaleFactor          = 0.9
     }

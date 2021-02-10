@@ -34,7 +34,7 @@ class FMPBodyLabel: UILabel {
     //MARK: - Helpers
     
     private func configureUI() {
-        textColor                           = .secondaryLabel
+        textColor                           = .black
         font                                = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontForContentSizeCategory   = true
         adjustsFontSizeToFitWidth           = true
