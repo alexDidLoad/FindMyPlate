@@ -2,6 +2,8 @@
 
 ### Screen Shots
  
+ <img src="https://user-images.githubusercontent.com/67172004/109069157-aed7ed00-76a5-11eb-99a5-10bbf1734f3c.png" width="600" height="510">
+ 
 <img src="https://user-images.githubusercontent.com/67172004/107616791-937bd500-6c03-11eb-9d77-74205e88ca5f.gif" width="240" height="510">
 
 ---
